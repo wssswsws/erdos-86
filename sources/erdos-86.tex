@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{problem}{Problem}
+\begin{document}
+\section*{Erdos Problem 86: research scope}
+\begin{problem}
+Let $Q_n$ have vertex set $\{0,1\}^n$, with two vertices adjacent when they
+differ in exactly one coordinate. Write $f(n)=\operatorname{ex}(Q_n,C_4)$
+for the maximum number of edges in a subgraph containing no cycle of length
+four. The original problem asks whether
+$f(n)=(\tfrac12+o(1))n2^{n-1}$ as $n\to\infty$.
+Our initial finite research target is to understand $C_4$-free subgraphs of
+$Q_7$ with 304 edges and search for a verifiable construction with at least
+305 edges, or obtain a precisely scoped structural or exclusion result.
+\end{problem}
+
+\section*{Known baseline and limits}
+Known constructions have 304 edges in $Q_7$ and 682 edges in $Q_8$.
+Within the odd-square subclass, where every square retains exactly one or
+three edges, the maxima are 304 and 682 respectively. An improvement must
+therefore leave that subclass. The unrestricted optimal values in these
+dimensions are not settled by those subclass results.
+
+A finite improvement does not resolve the original asymptotic problem.
+Failure of a heuristic search is not an upper-bound proof. Exhaustive
+exclusion under additional restrictions must retain those restrictions
+in its statement. Reproducing a known construction is baseline validation,
+not a claim of a new result.
+
+\section*{Evidence requirements}
+Record full edge lists, source versions, search parameters, and verification
+commands. Check that all edges belong to $Q_n$, that there are no duplicates,
+and that every square has at most three selected edges. Independently check
+that no two vertices have two common neighbors. Proof claims require an
+explicit argument or independently checkable exact certificates.
+
+\section*{Primary references}
+\begin{itemize}
+\item https://www.erdosproblems.com/86
+\item https://arxiv.org/html/2603.29127v5
+\item https://github.com/minamominamoto/c4free-hypercube
+\end{itemize}
+\end{document}

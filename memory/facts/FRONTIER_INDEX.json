@@ -1,0 +1,11 @@
+{
+  "schema_version": "iteris.frontier_index.v0",
+  "project_id": "erdos-86",
+  "updated_at": "2026-09-12T22:24:05.363507Z",
+  "active_frontiers": [],
+  "reviewed_positive_routes": [],
+  "closed_lanes": [],
+  "submitted_gates": [],
+  "completion_gaps": [],
+  "do_not_schedule_patterns": []
+}

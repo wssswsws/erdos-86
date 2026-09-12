@@ -1,0 +1,12 @@
+{
+  "schema_version": "iteris.config.v0",
+  "goal_mode": {
+    "codex_command": "codex --yolo",
+    "tmux_session_prefix": "iteris"
+  },
+  "verification": {
+    "backend": "agent",
+    "default_mode": "source",
+    "service_port": 8092
+  }
+}

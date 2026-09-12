@@ -1,0 +1,13 @@
+{
+  "schema_version": "iteris.verification_request.v0",
+  "request_id": "verify-20260912T222405368744Z-source-the-bootstrap-run-correctly-extra",
+  "mode": "source",
+  "claim": "The bootstrap run correctly extracted and recorded the source problem for first-stage planning.",
+  "artifacts": [
+    "artifacts/runs/run-20260912T222405367383Z/exploration.md",
+    "memory/facts/fact-erdos-86-run-20260912T222405367383Z-source-problem.md"
+  ],
+  "fact_ids": [],
+  "target_artifact": null,
+  "created_at": "2026-09-12T22:24:05.368902Z"
+}

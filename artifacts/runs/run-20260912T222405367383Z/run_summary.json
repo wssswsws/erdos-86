@@ -1,0 +1,43 @@
+{
+  "schema_version": "iteris.bootstrap_run_summary.v0",
+  "run_id": "run-20260912T222405367383Z",
+  "source": "sources/erdos-86.tex",
+  "task": {
+    "schema_version": "iteris.task.v0",
+    "task_id": "task-initial-source-exploration-run-20260912t222405367383z",
+    "title": "initial-source-exploration-run-20260912T222405367383Z",
+    "category": "foundation",
+    "objective": "Extract the source problem, create first memory records, and submit a structural verification claim.",
+    "claim_ceiling": "submitted",
+    "status": "done",
+    "verification_required": true,
+    "created_at": "2026-09-12T22:24:05.367558Z"
+  },
+  "fact_path": "memory/facts/fact-erdos-86-run-20260912T222405367383Z-source-problem.md",
+  "fact_index_records": 1,
+  "verification": {
+    "schema_version": "iteris.verification_result.v0",
+    "request_id": "verify-20260912T222405368744Z-source-the-bootstrap-run-correctly-extra",
+    "mode": "source",
+    "claim": "The bootstrap run correctly extracted and recorded the source problem for first-stage planning.",
+    "verdict": "accepted",
+    "passed": true,
+    "strict_verdict": "correct",
+    "summary": "Accepted source claim at structural precheck scope: The bootstrap run correctly extracted and recorded the source problem for first-stage planning.",
+    "critical_errors": [],
+    "gaps": [],
+    "repair_hints": [],
+    "checked_artifacts": [
+      "artifacts/runs/run-20260912T222405367383Z/exploration.md",
+      "memory/facts/fact-erdos-86-run-20260912T222405367383Z-source-problem.md"
+    ],
+    "checked_fact_ids": [],
+    "primary_fact_ids": [],
+    "target_artifact": null,
+    "verification_scope": "structural_precheck",
+    "claim_ceiling_after_verification": "reviewed",
+    "created_at": "2026-09-12T22:24:05.368900Z",
+    "verifier": "iteris.structural_precheck"
+  },
+  "created_at": "2026-09-12T22:24:05.369870Z"
+}

@@ -1,0 +1,15 @@
+/.lake
+# Iteris runtime/cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.iteris/goal_prompt.txt
+.iteris/current_run.json
+.iteris/locks/
+# Local-only logs
+.iteris/logs/
+.iteris/codex_home/
+# Report-local build outputs
+reports/*/build/

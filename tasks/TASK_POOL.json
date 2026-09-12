@@ -1,0 +1,26 @@
+{
+  "schema_version": "iteris.task_pool.v0",
+  "project_id": "erdos-86",
+  "updated_at": "2026-09-12T22:24:05.369684Z",
+  "active_frontier": "",
+  "tasks": [
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-initial-source-exploration-run-20260912t222405367383z",
+      "mode": "foundation",
+      "objective": "Extract the source problem, create first memory records, and submit a structural verification claim.",
+      "status": "done",
+      "priority": 0,
+      "dependencies": [],
+      "inputs": [],
+      "expected_outputs": [],
+      "assigned_agent_run": null,
+      "notes": [
+        "Mirrored from legacy task board category `foundation`.",
+        "Bootstrap intake completed inline; closed by run_once."
+      ],
+      "created_at": "2026-09-12T22:24:05.367924Z",
+      "updated_at": "2026-09-12T22:24:05.369679Z"
+    }
+  ]
+}
