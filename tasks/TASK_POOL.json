@@ -1,7 +1,7 @@
 {
   "schema_version": "iteris.task_pool.v0",
   "project_id": "erdos-86",
-  "updated_at": "2026-09-12T22:24:05.369684Z",
+  "updated_at": "2026-09-12T23:02:32.978531Z",
   "active_frontier": "",
   "tasks": [
     {
@@ -21,6 +21,99 @@
       ],
       "created_at": "2026-09-12T22:24:05.367924Z",
       "updated_at": "2026-09-12T22:24:05.369679Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-record-existing-research-20260912",
+      "mode": "foundation",
+      "objective": "Record the five requested sources, identify ML graph methods in the lecture, and independently audit existing certificates.",
+      "status": "done",
+      "priority": 100,
+      "dependencies": [],
+      "inputs": [
+        "references/user/source-pack/DOWNLOAD_MANIFEST.json"
+      ],
+      "expected_outputs": [
+        "docs/existing-research.md",
+        "docs/ml-methods-from-lectures.md",
+        "artifacts/experiments/literature-intake-20260912/wrona-independent-verification.json"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "Completed source intake and certificate checking; no new discovery claim and no research agents launched."
+      ],
+      "created_at": "2026-09-12T23:02:30.912309Z",
+      "updated_at": "2026-09-12T23:02:30.912309Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-baber-certificate-audit",
+      "mode": "foundation",
+      "objective": "Obtain the original arXiv source attachment and assess/reproduce PartialB.txt with its exact checker.",
+      "status": "ready",
+      "priority": 10,
+      "dependencies": [
+        "task-record-existing-research-20260912"
+      ],
+      "inputs": [
+        "references/user/source-pack/baber-1201.3587v2.html"
+      ],
+      "expected_outputs": [
+        "artifacts/proofs/baber-certificate-audit.md"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "Recorded next task; not executed during the intake."
+      ],
+      "created_at": "2026-09-12T23:02:32.977806Z",
+      "updated_at": "2026-09-12T23:02:32.977806Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-q7-training-corpus-audit",
+      "mode": "foundation",
+      "objective": "Import the Q7 catalogue and orbit evidence; verify provenance and design a diverse training split without duplicate symmetry copies.",
+      "status": "ready",
+      "priority": 10,
+      "dependencies": [
+        "task-record-existing-research-20260912"
+      ],
+      "inputs": [
+        "references/user/source-pack/minamoto/README.md",
+        "docs/existing-research.md"
+      ],
+      "expected_outputs": [
+        "artifacts/experiments/q7-corpus-audit.md"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "Recorded next task; not executed during the intake."
+      ],
+      "created_at": "2026-09-12T23:02:32.978260Z",
+      "updated_at": "2026-09-12T23:02:32.978260Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-patternboost-q7-design",
+      "mode": "algorithm",
+      "objective": "Specify a bounded Q7 pilot with 448-edge encoding, fixed verifier, local-search baseline, and explicit compute accounting before training.",
+      "status": "ready",
+      "priority": 10,
+      "dependencies": [
+        "task-record-existing-research-20260912"
+      ],
+      "inputs": [
+        "docs/ml-methods-from-lectures.md"
+      ],
+      "expected_outputs": [
+        "artifacts/experiments/patternboost-pilot-design.md"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "Recorded next task; not executed during the intake."
+      ],
+      "created_at": "2026-09-12T23:02:32.978529Z",
+      "updated_at": "2026-09-12T23:02:32.978529Z"
     }
   ]
 }

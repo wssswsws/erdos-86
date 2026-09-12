@@ -1,0 +1,2 @@
+# Preserve downloaded evidence byte-for-byte for SHA-256 verification.
+references/user/source-pack/** -text -whitespace

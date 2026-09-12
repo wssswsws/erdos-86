@@ -1,0 +1,52 @@
+{
+  "manifest_path": "references/MANIFEST.json",
+  "imported": [
+    {
+      "origin": "/Users/wsss/Documents/Math-other/Mathathon/sources/erdos86-intake-2026-09-12/source-pack",
+      "path": "references/user/source-pack",
+      "kind": "directory",
+      "files": [
+        "references/user/source-pack/DOWNLOAD_MANIFEST.json",
+        "references/user/source-pack/baber-1201.3587v2.html",
+        "references/user/source-pack/forum-86-observation.md",
+        "references/user/source-pack/lecture-selected-pages.txt",
+        "references/user/source-pack/minamoto/LICENSE",
+        "references/user/source-pack/minamoto/README.md",
+        "references/user/source-pack/minamoto/UPSTREAM_COMMIT.txt",
+        "references/user/source-pack/minamoto/cycle_space_rank.py",
+        "references/user/source-pack/minamoto/field_identity_defect.py",
+        "references/user/source-pack/minamoto/q7_orbit_census_check.py",
+        "references/user/source-pack/minamoto/reproduce_core.py",
+        "references/user/source-pack/minamoto/sa_collect304.py",
+        "references/user/source-pack/minamoto/sa_search.py",
+        "references/user/source-pack/minamoto/verify.py",
+        "references/user/source-pack/minamoto-2603.29127v5.html",
+        "references/user/source-pack/patternboost-2411.00566.html",
+        "references/user/source-pack/wagner-2104.14516.pdf",
+        "references/user/source-pack/wrona/CLAIM_BOUNDARY.md",
+        "references/user/source-pack/wrona/HDF_STATUS.md",
+        "references/user/source-pack/wrona/LICENSE",
+        "references/user/source-pack/wrona/PAPER_V2.md",
+        "references/user/source-pack/wrona/README.md",
+        "references/user/source-pack/wrona/REPRODUCE.md",
+        "references/user/source-pack/wrona/SHA256SUMS",
+        "references/user/source-pack/wrona/UPSTREAM_COMMIT.txt",
+        "references/user/source-pack/wrona/VERIFY_ALL_CERTIFICATES.log",
+        "references/user/source-pack/wrona/c4_sparse_verifier.py",
+        "references/user/source-pack/wrona/independent_crosscheck.md",
+        "references/user/source-pack/wrona/lift_params.json",
+        "references/user/source-pack/wrona/q10_edges_repair_from3302_iter5.json",
+        "references/user/source-pack/wrona/q11_edges_repair_from7160_probe_fast2.json",
+        "references/user/source-pack/wrona/q12_edges_repair_from15366_iter3.json",
+        "references/user/source-pack/wrona/q13_edges_repair_from32842_iter2.json",
+        "references/user/source-pack/wrona/q14_edges_repair_from69895_iter2.json",
+        "references/user/source-pack/wrona/q15_edges_repair_from148111_iter1.json",
+        "references/user/source-pack/wrona/q9_edges_repair_from1503_iter2.json",
+        "references/user/source-pack/wrona/verify_c4_free.py"
+      ],
+      "file_count": 37
+    }
+  ],
+  "total_files": 37,
+  "manifest_entries": 1
+}

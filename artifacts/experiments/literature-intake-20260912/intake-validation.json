@@ -1,0 +1,20 @@
+{
+  "download_hashes_checked": 32,
+  "registered_files": 37,
+  "local_links_ok": true,
+  "verifier_fixture_checks": 5,
+  "iteris_checks": [
+    {
+      "command": "iteris tool memory validate --json",
+      "ok": true
+    },
+    {
+      "command": "iteris tool task pool validate --json",
+      "ok": true
+    },
+    {
+      "command": "iteris status --json",
+      "ok": true
+    }
+  ]
+}

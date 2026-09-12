@@ -1,0 +1,82 @@
+{
+  "recorded_at": "2026-09-12T23:02:32.979031Z",
+  "facts": [
+    {
+      "fact_id": "fact:erdos-86:baber-asymptotic-bound",
+      "path": "memory/facts/fact-erdos-86-baber-asymptotic-bound.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:minamoto-odd-square-scope",
+      "path": "memory/facts/fact-erdos-86-minamoto-odd-square-scope.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:minamoto-catalogue-scope",
+      "path": "memory/facts/fact-erdos-86-minamoto-catalogue-scope.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:q7-q8-certified-baselines",
+      "path": "memory/facts/fact-erdos-86-q7-q8-certified-baselines.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:finite-averaging-intervals",
+      "path": "memory/facts/fact-erdos-86-finite-averaging-intervals.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:wrona-product-lift",
+      "path": "memory/facts/fact-erdos-86-wrona-product-lift.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:wrona-q9-q15-certified",
+      "path": "memory/facts/fact-erdos-86-wrona-q9-q15-certified.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:forum-status-20260912",
+      "path": "memory/facts/fact-erdos-86-forum-status-20260912.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:lecture-wagner-cem",
+      "path": "memory/facts/fact-erdos-86-lecture-wagner-cem.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:lecture-patternboost",
+      "path": "memory/facts/fact-erdos-86-lecture-patternboost.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    },
+    {
+      "fact_id": "fact:erdos-86:patternboost-q7-proposal",
+      "path": "memory/facts/fact-erdos-86-patternboost-q7-proposal.md",
+      "resubmit": false,
+      "reindexed": false,
+      "rebuilt": 0
+    }
+  ]
+}

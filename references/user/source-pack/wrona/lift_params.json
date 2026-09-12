@@ -1,0 +1,65 @@
+[
+  {
+    "lift": "Q8 -> Q9",
+    "parent_file": "Minamoto run 1 / run 2",
+    "result_edges": 1501,
+    "permutation": [3, 2, 4, 1, 5, 0, 6, 7],
+    "flip": 25,
+    "alpha": 141,
+    "search_budget": "4 base pairs x 20 restarts x 1500 moves"
+  },
+  {
+    "lift": "Q9 -> Q10",
+    "parent_file": "q9_edges_v6_local.json",
+    "result_edges": 3292,
+    "permutation": [0, 1, 2, 8, 4, 5, 6, 7, 3],
+    "flip": 8,
+    "alpha": 290,
+    "search_budget": "3 parent pairs x 15 restarts x 800 moves"
+  },
+  {
+    "lift": "Q10 -> Q11",
+    "parent_file": "q10_edges_repair_from3302_iter5.json",
+    "result_edges": 7142,
+    "permutation": [6, 8, 2, 4, 7, 0, 5, 3, 1, 9],
+    "flip": 484,
+    "alpha": 534,
+    "search_budget": "400 random trials"
+  },
+  {
+    "lift": "Q11 -> Q12",
+    "parent_file": "q11_edges_repair_from7146_iter2.json",
+    "result_edges": 15350,
+    "permutation": [8, 2, 1, 10, 9, 6, 3, 7, 4, 5, 0],
+    "flip": 1092,
+    "alpha": 1048,
+    "search_budget": "300 random trials"
+  },
+  {
+    "lift": "Q12 -> Q13",
+    "parent_file": "q12_edges_repair_from15358_iter2.json",
+    "result_edges": 32829,
+    "permutation": [7, 0, 10, 2, 9, 6, 8, 4, 11, 5, 3, 1],
+    "flip": 67,
+    "alpha": 2097,
+    "search_budget": "150 random trials"
+  },
+  {
+    "lift": "Q13 -> Q14",
+    "parent_file": "q13_edges_repair_from32842_iter2.json",
+    "result_edges": 69883,
+    "permutation": [0, 10, 1, 11, 4, 6, 7, 3, 5, 12, 9, 8, 2],
+    "flip": 7162,
+    "alpha": 4171,
+    "search_budget": "100 random trials"
+  },
+  {
+    "lift": "Q14 -> Q15",
+    "parent_file": "q14_edges_repair_from69895_iter2.json",
+    "result_edges": 148111,
+    "permutation": [13, 2, 7, 8, 0, 4, 3, 1, 9, 5, 6, 11, 10, 12],
+    "flip": 5091,
+    "alpha": 8293,
+    "search_budget": "50 random trials"
+  }
+]

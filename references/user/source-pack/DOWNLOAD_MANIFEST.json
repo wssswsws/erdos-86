@@ -1,0 +1,261 @@
+{
+  "retrieved_at": "2026-09-12T22:32:19.275675+00:00",
+  "sources": [
+    {
+      "path": "baber-1201.3587v2.html",
+      "url": "https://arxiv.org/html/1201.3587v2",
+      "effective_url": "https://arxiv.org/html/1201.3587v2",
+      "bytes": 392530,
+      "sha256": "9249269d3ab75cb8a886419dd3477a715b697515893c7ecd5ce1608b849eedb6",
+      "ok": true
+    },
+    {
+      "path": "minamoto-2603.29127v5.html",
+      "url": "https://arxiv.org/html/2603.29127v5",
+      "effective_url": "https://arxiv.org/html/2603.29127v5",
+      "bytes": 1128087,
+      "sha256": "4763cf9c9d9b6fcaf8ff916ccd727df7919d0cc6e98edcf2ad28e2761294dc84",
+      "ok": true
+    },
+    {
+      "path": "patternboost-2411.00566.html",
+      "url": "https://arxiv.org/html/2411.00566",
+      "effective_url": "https://arxiv.org/html/2411.00566",
+      "bytes": 617078,
+      "sha256": "c61aa0415b3fdc6258cffca689d9d6556053deba558ef5d75a52deb2555b78a6",
+      "ok": true
+    },
+    {
+      "path": "wagner-2104.14516.pdf",
+      "url": "https://arxiv.org/pdf/2104.14516",
+      "effective_url": "https://arxiv.org/pdf/2104.14516",
+      "bytes": 892301,
+      "sha256": "9c154312c8ee220445787de8c188787c5d986fa0c0051c80596b91ddc68b430e",
+      "ok": true
+    },
+    {
+      "path": "minamoto/LICENSE",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/LICENSE",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/LICENSE",
+      "bytes": 1072,
+      "sha256": "db06213186c5d7cc0c556b2c5d94c42eda57130b2ff4835de7a1aa8105b32aad",
+      "ok": true
+    },
+    {
+      "path": "minamoto/README.md",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/README.md",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/README.md",
+      "bytes": 36930,
+      "sha256": "6b6b31042b68b91da3bf4986e258340a682fb6a3927e21d616c7ef320be8ff16",
+      "ok": true
+    },
+    {
+      "path": "minamoto/cycle_space_rank.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/cycle_space_rank.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/cycle_space_rank.py",
+      "bytes": 2961,
+      "sha256": "cc4b77f5ac4040bb282504450434a6e6323e792c83ef81e6f256e54c3c87b795",
+      "ok": true
+    },
+    {
+      "path": "minamoto/field_identity_defect.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/field_identity_defect.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/field_identity_defect.py",
+      "bytes": 7623,
+      "sha256": "5a3fce18d1323d07611cd86493b9fdb36c585acef03419accd1a85925a76aa4f",
+      "ok": true
+    },
+    {
+      "path": "minamoto/q7_orbit_census_check.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/q7_orbit_census_check.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/q7_orbit_census_check.py",
+      "bytes": 4643,
+      "sha256": "f83e674d9a068018665735dc1989ff3aa6b8a39547c0db6ca65d13c68273e02a",
+      "ok": true
+    },
+    {
+      "path": "minamoto/reproduce_core.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/reproduce_core.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/reproduce_core.py",
+      "bytes": 12748,
+      "sha256": "0640f56cf55fa898e260ed2acdd4f04c2b976c4efb23229fe32ebc826f725426",
+      "ok": true
+    },
+    {
+      "path": "minamoto/sa_collect304.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/sa_collect304.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/sa_collect304.py",
+      "bytes": 9761,
+      "sha256": "67e233d1de5ad1524a1d5121d46e13f5d9a3044369fbc49ef846c250b2ad0313",
+      "ok": true
+    },
+    {
+      "path": "minamoto/sa_search.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/sa_search.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/sa_search.py",
+      "bytes": 11026,
+      "sha256": "e5c5ffb78c9abaf41a3ec4ff12381cbf8a0dbdb7a57ac33551b2747442bfb55f",
+      "ok": true
+    },
+    {
+      "path": "minamoto/verify.py",
+      "url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/verify.py",
+      "effective_url": "https://raw.githubusercontent.com/minamominamoto/c4free-hypercube/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b/verify.py",
+      "bytes": 15712,
+      "sha256": "f8e8de50ce4a12fafc6b5f8f470473bdce68b47f6b5574eb6ef6c24a5c16cebe",
+      "ok": true
+    },
+    {
+      "path": "wrona/CLAIM_BOUNDARY.md",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/CLAIM_BOUNDARY.md",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/CLAIM_BOUNDARY.md",
+      "bytes": 1637,
+      "sha256": "2c9b240c2dc7adf3906ee11e093974f0804e138af7f90a0465459d766894178e",
+      "ok": true
+    },
+    {
+      "path": "wrona/HDF_STATUS.md",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/HDF_STATUS.md",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/HDF_STATUS.md",
+      "bytes": 1111,
+      "sha256": "4d066aabe1a31ba94ac8dc45a0dfcf421995f49fd418c163c476670b4ee5440b",
+      "ok": true
+    },
+    {
+      "path": "wrona/LICENSE",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/LICENSE",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/LICENSE",
+      "bytes": 1068,
+      "sha256": "44662d08a0c2bbf81767ac7b06f3188a77b4184f6b5804b4ac38c38ec09958e7",
+      "ok": true
+    },
+    {
+      "path": "wrona/PAPER_V2.md",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/PAPER_V2.md",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/PAPER_V2.md",
+      "bytes": 18967,
+      "sha256": "73aa5d02bb8a7619af44650184fcbe1057581e485aba654401961c4a78e899b0",
+      "ok": true
+    },
+    {
+      "path": "wrona/README.md",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/README.md",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/README.md",
+      "bytes": 5722,
+      "sha256": "71ad3f792f196b6a5db57df6fb64893b6421cba32a1c0f121cdfc53ec8703ba1",
+      "ok": true
+    },
+    {
+      "path": "wrona/REPRODUCE.md",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/REPRODUCE.md",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/REPRODUCE.md",
+      "bytes": 1870,
+      "sha256": "4c8e7814e7211231344011ab6513cc50be6fbebf3687caa0d888c834c714ccb6",
+      "ok": true
+    },
+    {
+      "path": "wrona/SHA256SUMS",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/SHA256SUMS",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/SHA256SUMS",
+      "bytes": 731,
+      "sha256": "b78e3b7cb7601c661da1f6994af7eba692e7cb388a8b0e9142015d40a1b1e535",
+      "ok": true
+    },
+    {
+      "path": "wrona/VERIFY_ALL_CERTIFICATES.log",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/VERIFY_ALL_CERTIFICATES.log",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/VERIFY_ALL_CERTIFICATES.log",
+      "bytes": 2306,
+      "sha256": "4650e0ae5286dc780c1c5a0d912744afc40cf4f23baacd727448025b4c4d8b00",
+      "ok": true
+    },
+    {
+      "path": "wrona/c4_sparse_verifier.py",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/c4_sparse_verifier.py",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/c4_sparse_verifier.py",
+      "bytes": 5227,
+      "sha256": "4b2704f7660b6671f981ad3fe99853d6705f172f3248edc72cb4acbd7dabe6d5",
+      "ok": true
+    },
+    {
+      "path": "wrona/independent_crosscheck.md",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/independent_crosscheck.md",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/independent_crosscheck.md",
+      "bytes": 3191,
+      "sha256": "aa245813988a0b1fe7de6be853b4322ea39488a65e92760388bf0a84d1826c94",
+      "ok": true
+    },
+    {
+      "path": "wrona/lift_params.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/lift_params.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/lift_params.json",
+      "bytes": 1787,
+      "sha256": "c59c750fecbf0d64f54631b8a3172bec7ea2161055f334f4e1c697b27f7ae14f",
+      "ok": true
+    },
+    {
+      "path": "wrona/q10_edges_repair_from3302_iter5.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q10_edges_repair_from3302_iter5.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q10_edges_repair_from3302_iter5.json",
+      "bytes": 39430,
+      "sha256": "24317cb0f821a7e39688d1376ac58c466779fc21d3628085270ddc468ae27c09",
+      "ok": true
+    },
+    {
+      "path": "wrona/q11_edges_repair_from7160_probe_fast2.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q11_edges_repair_from7160_probe_fast2.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q11_edges_repair_from7160_probe_fast2.json",
+      "bytes": 92876,
+      "sha256": "a396680dd00bd3b86fff26920c5345cebeff4dde3d7dd411fd8ea97ac269274b",
+      "ok": true
+    },
+    {
+      "path": "wrona/q12_edges_repair_from15366_iter3.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q12_edges_repair_from15366_iter3.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q12_edges_repair_from15366_iter3.json",
+      "bytes": 207191,
+      "sha256": "f1e952df4c40e10418f52b9c778fd8d1313efb1ab41bc8e45266d645a368a2f5",
+      "ok": true
+    },
+    {
+      "path": "wrona/q13_edges_repair_from32842_iter2.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q13_edges_repair_from32842_iter2.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q13_edges_repair_from32842_iter2.json",
+      "bytes": 451393,
+      "sha256": "f3214c05e66d45a3a300d2a96ee3f3a77982d091990ff5457f1852e98a389dd2",
+      "ok": true
+    },
+    {
+      "path": "wrona/q14_edges_repair_from69895_iter2.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q14_edges_repair_from69895_iter2.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q14_edges_repair_from69895_iter2.json",
+      "bytes": 1024032,
+      "sha256": "78d7ca75e720f920637d72134c7749f9680f7c4c60d31ac67e8948a1fa0d7e32",
+      "ok": true
+    },
+    {
+      "path": "wrona/q15_edges_repair_from148111_iter1.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q15_edges_repair_from148111_iter1.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q15_edges_repair_from148111_iter1.json",
+      "bytes": 2269856,
+      "sha256": "9c98dc35a87d2a2fde9ee115f628144d2851e1dbdf57096ad6e6003d97b8f575",
+      "ok": true
+    },
+    {
+      "path": "wrona/q9_edges_repair_from1503_iter2.json",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q9_edges_repair_from1503_iter2.json",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/q9_edges_repair_from1503_iter2.json",
+      "bytes": 17740,
+      "sha256": "0994be825ec39d115b65eb1436eace7c1be324448a6ec116d69c8a7e2a75d338",
+      "ok": true
+    },
+    {
+      "path": "wrona/verify_c4_free.py",
+      "url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/verify_c4_free.py",
+      "effective_url": "https://raw.githubusercontent.com/rafalwronapl/erdos86-hypercube-c4/7b8554bf3e7562a4bc1fb217757e709ba63c3e26/verify_c4_free.py",
+      "bytes": 3835,
+      "sha256": "84ef8af84f5e7398ea93a02a9c2d71875efcbb0efdd2dea2ca3bff1c7959b01b",
+      "ok": true
+    }
+  ]
+}

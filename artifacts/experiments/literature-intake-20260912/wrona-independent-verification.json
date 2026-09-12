@@ -1,0 +1,128 @@
+{
+  "schema_version": "erdos86.independent_certificate_audit.v1",
+  "upstream_commit": "7b8554bf3e7562a4bc1fb217757e709ba63c3e26",
+  "results": [
+    {
+      "file": "q9_edges_repair_from1503_iter2.json",
+      "n": 9,
+      "edges": 1505,
+      "sha256": "0994be825ec39d115b65eb1436eace7c1be324448a6ec116d69c8a7e2a75d338",
+      "vertex_support": 512,
+      "cube_squares": 4608,
+      "square_edge_histogram": {
+        "1": 885,
+        "2": 14,
+        "3": 3709
+      },
+      "common_neighbor_pairs_checked": 7431,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 0.005
+    },
+    {
+      "file": "q10_edges_repair_from3302_iter5.json",
+      "n": 10,
+      "edges": 3304,
+      "sha256": "24317cb0f821a7e39688d1376ac58c466779fc21d3628085270ddc468ae27c09",
+      "vertex_support": 1024,
+      "cube_squares": 11520,
+      "square_edge_histogram": {
+        "1": 2412,
+        "3": 9108
+      },
+      "common_neighbor_pairs_checked": 18216,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 0.013
+    },
+    {
+      "file": "q11_edges_repair_from7160_probe_fast2.json",
+      "n": 11,
+      "edges": 7164,
+      "sha256": "a396680dd00bd3b86fff26920c5345cebeff4dde3d7dd411fd8ea97ac269274b",
+      "vertex_support": 2048,
+      "cube_squares": 28160,
+      "square_edge_histogram": {
+        "1": 6420,
+        "3": 21740
+      },
+      "common_neighbor_pairs_checked": 43480,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 0.031
+    },
+    {
+      "file": "q12_edges_repair_from15366_iter3.json",
+      "n": 12,
+      "edges": 15372,
+      "sha256": "f1e952df4c40e10418f52b9c778fd8d1313efb1ab41bc8e45266d645a368a2f5",
+      "vertex_support": 4096,
+      "cube_squares": 67584,
+      "square_edge_histogram": {
+        "0": 1,
+        "1": 16819,
+        "2": 19,
+        "3": 50745
+      },
+      "common_neighbor_pairs_checked": 101504,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 0.075
+    },
+    {
+      "file": "q13_edges_repair_from32842_iter2.json",
+      "n": 13,
+      "edges": 32856,
+      "sha256": "f3214c05e66d45a3a300d2a96ee3f3a77982d091990ff5457f1852e98a389dd2",
+      "vertex_support": 8192,
+      "cube_squares": 159744,
+      "square_edge_histogram": {
+        "0": 3,
+        "1": 42450,
+        "2": 51,
+        "3": 117240
+      },
+      "common_neighbor_pairs_checked": 234514,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 0.175
+    },
+    {
+      "file": "q14_edges_repair_from69895_iter2.json",
+      "n": 14,
+      "edges": 69909,
+      "sha256": "78d7ca75e720f920637d72134c7749f9680f7c4c60d31ac67e8948a1fa0d7e32",
+      "vertex_support": 16384,
+      "cube_squares": 372736,
+      "square_edge_histogram": {
+        "0": 14,
+        "1": 104557,
+        "2": 235,
+        "3": 267930
+      },
+      "common_neighbor_pairs_checked": 536029,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 0.416
+    },
+    {
+      "file": "q15_edges_repair_from148111_iter1.json",
+      "n": 15,
+      "edges": 148126,
+      "sha256": "9c98dc35a87d2a2fde9ee115f628144d2851e1dbdf57096ad6e6003d97b8f575",
+      "vertex_support": 32768,
+      "cube_squares": 860160,
+      "square_edge_histogram": {
+        "0": 44,
+        "1": 252968,
+        "2": 648,
+        "3": 606500
+      },
+      "common_neighbor_pairs_checked": 1213468,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "elapsed_seconds": 1.062
+    }
+  ],
+  "passed": true
+}

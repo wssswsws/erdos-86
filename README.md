@@ -2,7 +2,17 @@
 
 Erdős #86 的研究工作区，使用 Iteris 组织研究材料、任务和验证记录，使用现有 Lean 项目保存将来的形式化工作。
 
-当前阶段：**已初始化，尚未启动研究代理；没有新数学结果。**
+当前阶段：**已记录现有研究并复核已知证书，尚未启动研究代理或机器学习训练；没有新数学结果。**
+
+## 现有研究入口
+
+- [现有研究综述](docs/existing-research.md)：用户指定的五个来源、版本冲突、结论范围与复核结果。
+- [讲义中的机器学习图论方法](docs/ml-methods-from-lectures.md)：Wagner 深度交叉熵法与 PatternBoost，含准确页码和 Q7 应用方案。
+- `references/MANIFEST.json`：本次导入的 37 个资料文件；其中 32 个来自公开网络下载，另有论坛观察、讲义相关页文本等补充记录。
+- `memory/facts/`：11 条新增持久记录，加上原有题目记录共 12 条。
+- `tasks/TASK_POOL.json`：已完成的资料入库任务及 3 个待开展任务。
+
+新增事实状态为 `reviewed`，具体证据范围见正文；不等同于独立人工审稿或 Iteris 的 `verified` 认证。
 
 ## 研究目标
 
@@ -18,9 +28,11 @@ Iteris 系统放在本仓库之外的 `../../tools/iteris`，虚拟环境位于�
 ./scripts/iteris doctor
 ./scripts/iteris status
 python3 references/baselines/86-verify.py
+python3 scripts/verify_wrona_certificates.py
+./scripts/iteris tool memory search --query 'PatternBoost'
 ```
 
-前两条检查环境和初始化状态；第三条复核已知构造。
+前两条检查环境和项目状态；随后两条分别复核 Q7/Q8 和 Q9–Q15 的已知构造；最后一条检索 Iteris 记忆。
 初始化自带的 `accepted` 记录仅表示题目材料通过结构预检，不是数学证明认证。
 
 准备开始研究时，可执行 `./scripts/iteris run --foreground`。这会启动并消耗底层模型额度，当前初始化没有执行它。本机尚未安装 `tmux`，因此先使用前台模式；图形面板尚未安装或启动。
