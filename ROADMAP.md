@@ -1,5 +1,7 @@
 # Roadmap
 
-- Initialize project memory.
-- Explore source problem.
-- Submit first verification request.
+- 已完成：初始化 Iteris 目录和题目材料，导入已知构造与独立验证器。
+- 首轮研究：核对来源、已知结果与失败搜索记录，确定一个有明确预算的局部任务。
+- 搜索方向：允许离开 odd-square 类，尝试修改已知 Q7 构造以增加边数。
+- 候选验收：保存完整边表；分别用方形枚举与公共邻居检查验证无四圈。
+- 结论审核：区分复现、实验观察、限制类中的排除与一般定理；新颖性必须再次查证。

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "q8_odd_square_682.json",
+    "n": 8,
+    "edges": 682,
+    "sha256": "7243042c407dbf2e389bc13d0320a7d2fa1ae94db83caf5068a0d77bdb082258",
+    "cube_squares": 1792,
+    "square_edge_histogram": {
+      "1": 301,
+      "3": 1491
+    },
+    "degree_histogram": {
+      "4": 2,
+      "5": 168,
+      "6": 86
+    },
+    "C4_violations": 0,
+    "common_neighbor_pair_collisions": 0
+  },
+  {
+    "file": "selected_edges_best.json",
+    "n": 7,
+    "edges": 304,
+    "sha256": "8e3c8d23643d2d34c493acd95013faea6f98c0a0f9db20ae77eee1a698d0980c",
+    "cube_squares": 672,
+    "square_edge_histogram": {
+      "1": 36,
+      "2": 120,
+      "3": 516
+    },
+    "degree_histogram": {
+      "4": 32,
+      "5": 96
+    },
+    "C4_violations": 0,
+    "common_neighbor_pair_collisions": 0
+  }
+]

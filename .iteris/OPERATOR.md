@@ -1,12 +1,14 @@
-# erdos-86 — Operator Notes
+# erdos-86 — 研究约定
 
-Project-specific notes for `iteris monitor` and human operators.
-
-## Problem
-
-- Source: `sources/erdos-86.tex`
-- Target artifact: `results/erdos-86/answer.md`
-
-## Notes
-
-(Add problem-specific context, conventions, or steering notes here.)
+- 题目：`sources/erdos-86.tex`。
+- 目标文档：`results/erdos-86/answer.md`。
+- 用户是掌握基本图论语言的本科二年级数学学生。面向用户的解释使用简体中文，每轮说明检验的命题、得到的证据和结论的适用范围。
+- 本次授权仅为初始化和上传。开始长时间研究前需确定任务及预算。
+- 已知基准为 Q7 的 304 边构造与 Q8 的 682 边构造；它们不应被描述为本项目的新发现。
+- odd-square 类中的最优值已知。若寻找 305 / 683 边构造，搜索必须允许某些方形保留 0 条或 2 条边。
+- `references/baselines/86-verify.py` 是研究前准备的独立验证器，不是原作者搜索程序。它使用整数和 Python 标准库，并同时检查公共邻居与所有方形。运行时不要使用 `python -O`，因为它会关闭断言。
+- 固定验证器作为验收基准；如需修改，保留旧版并说明原因，不能为了让候选通过而放宽数学条件。
+- 超时、局部最优、启发式搜索失败不能作为不存在性证明。受限类的排除必须明确保留全部限制。
+- 一般的渐近原题、固定维数最优值、受限类最优值及单个候选构造是不同层次的目标。
+- 初始化自动生成的 accepted 状态仅是题目结构预检，不代表任何新数学命题已获证明。
+- 保留现有 Lean 工程；目前其中只有模板内容，没有 #86 的形式化证明。

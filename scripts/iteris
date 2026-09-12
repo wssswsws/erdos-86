@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+if [ -n "${ITERIS_BIN:-}" ]; then
+    exec "$ITERIS_BIN" "$@"
+fi
+if command -v iteris >/dev/null 2>&1; then
+    exec iteris "$@"
+fi
+project_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+iteris_local="$project_root/../../tools/iteris/.venv/bin/iteris"
+if [ -x "$iteris_local" ]; then
+    exec "$iteris_local" "$@"
+fi
+printf '%s\n' 'Iteris 未安装：请安装官方 Iteris，或将 ITERIS_BIN 设置为其可执行文件的完整路径。' >&2
+exit 127

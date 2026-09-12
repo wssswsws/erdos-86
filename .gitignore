@@ -1,4 +1,15 @@
 /.lake
+
+# Local environments, credentials, and editor caches
+.venv/
+venv/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.pem
+*.key
 # Iteris runtime/cache files
 __pycache__/
 *.py[cod]
