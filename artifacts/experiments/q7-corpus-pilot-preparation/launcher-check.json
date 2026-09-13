@@ -1,0 +1,28 @@
+{
+  "schema": "erdos86.launcher-check.v1",
+  "real_gpu_used": false,
+  "method": "Run shared Bash worker with a fake Python GPU process in a temporary Git repository.",
+  "checks": [
+    "corpus profile selects 3300-second cap",
+    "cuda:0 only",
+    "explicit population and audit flags",
+    "exit marker",
+    "replay refuses existing directory"
+  ],
+  "captured_args": [
+    "-m",
+    "erdos86_gps",
+    "run",
+    "--execute",
+    "--device",
+    "cuda:0",
+    "--config",
+    "/var/folders/cg/0lw2bpv91173snlxxl1ptz4r0000gn/T/erdos86-launch-3ltkw07z/artifacts/experiments/slurm-launch-test/pilot-seed-8601/run-config.json",
+    "--population",
+    "references/corpora/q7-304-orbits/representatives.jsonl",
+    "--population-audit",
+    "references/corpora/q7-304-orbits/audit.json",
+    "--output",
+    "/var/folders/cg/0lw2bpv91173snlxxl1ptz4r0000gn/T/erdos86-launch-3ltkw07z/artifacts/experiments/slurm-launch-test/pilot-seed-8601"
+  ]
+}

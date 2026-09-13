@@ -73,7 +73,7 @@
       "task_id": "task-q7-training-corpus-audit",
       "mode": "foundation",
       "objective": "Import the Q7 catalogue and orbit evidence; verify provenance and design a diverse training split without duplicate symmetry copies.",
-      "status": "ready",
+      "status": "done",
       "priority": 10,
       "dependencies": [
         "task-record-existing-research-20260912"
@@ -87,10 +87,12 @@
       ],
       "assigned_agent_run": null,
       "notes": [
-        "Recorded next task; not executed during the intake."
+        "Recorded next task; not executed during the intake.",
+        "User authorized verified 304-edge corpus integration followed by one A100 pilot. Full catalogue and orbit audit running locally.",
+        "19866 valid graphs and all orbit witnesses checked; complete canonical-minimality rerun passed for 180 representatives. Corpus import passed 16 tests and 6-step/2-graph CPU smoke. All 180 orbits used for construction-search training; no held-out split or generalization claim."
       ],
       "created_at": "2026-09-12T23:02:32.978260Z",
-      "updated_at": "2026-09-12T23:02:32.978260Z"
+      "updated_at": "2026-09-13T00:52:01.232664Z"
     },
     {
       "schema_version": "iteris.task_pool_task.v0",
@@ -114,6 +116,57 @@
       ],
       "created_at": "2026-09-12T23:02:32.978529Z",
       "updated_at": "2026-09-12T23:02:32.978529Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-graphgps-q7-smoke",
+      "mode": "algorithm",
+      "objective": "实现约束图局部消息传递、全局注意力、无未来标签泄漏的逐边训练/采样、局部修补、独立验证、检查点与 GPU 预算估算；完成 CPU smoke 后停止。",
+      "status": "done",
+      "priority": 100,
+      "dependencies": [],
+      "inputs": [
+        "docs/toward-305.md",
+        "references/baselines/86-selected_edges_best.json"
+      ],
+      "expected_outputs": [
+        "erdos86_gps/",
+        "docs/graphgps-route4.md",
+        "artifacts/experiments/graphgps-smoke/report.json"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "最终代码通过15项测试及完整Q7 CPU smoke；12步短训练、2张逐边生成图、局部修补、精英回填与检查点复核完成。没有新305构造。"
+      ],
+      "created_at": "2026-09-12T23:35:26.520182Z",
+      "updated_at": "2026-09-12T23:47:16.672124Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-graphgps-q7-gpu-pilot",
+      "mode": "experiment",
+      "objective": "用户连接外部 GPU 后先运行 CUDA 吞吐/显存校准，再执行有明确总时限的路线4试验和纯局部搜索对照。",
+      "status": "ready",
+      "priority": 100,
+      "dependencies": [
+        "task-graphgps-q7-smoke"
+      ],
+      "inputs": [
+        "docs/graphgps-route4.md",
+        "configs/graphgps/pilot.json",
+        "artifacts/experiments/graphgps-smoke/gpu-budget.json"
+      ],
+      "expected_outputs": [
+        "artifacts/experiments/graphgps-gpu-pilot/report.json"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "按用户要求暂停，等待外部 GPU；本轮不得启动正式 GPU 训练。",
+        "smoke已完成；按用户明确指令等待连接外部GPU。首先CUDA benchmark校准卡时与显存，不自动执行。",
+        "User explicitly authorized submission now. A100 calibration 21924947 passed; use audited 180-orbit corpus and corpus-pilot.sbatch (seed 8601), one A100, 55-minute program cap and one-hour Slurm limit. Estimated 0.316 GPU-hours plus overhead. Awaiting the actual Slurm job id."
+      ],
+      "created_at": "2026-09-12T23:35:26.520555Z",
+      "updated_at": "2026-09-13T00:52:02.371147Z"
     }
   ]
 }

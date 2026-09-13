@@ -147,3 +147,34 @@ def test_expired_budget_checkpoints_without_training(tmp_path):
     assert report['stopping_reason'] == 'wall_budget'
     assert report['training_steps_this_run'] == 0
     assert (tmp_path / 'run' / 'checkpoint.pt').is_file()
+
+
+def test_audited_corpus_is_bound_to_exact_data_and_reaches_run(tmp_path):
+    from hashlib import sha256
+    source = ROOT / 'references/corpora/q7-304-orbits'
+    path = tmp_path / 'representatives.jsonl'
+    path.write_bytes((source / path.name).read_bytes())
+    audit_path = tmp_path / 'audit.json'
+    audit_path.write_bytes((source / audit_path.name).read_bytes())
+    population, meta = read_population(path, Cube.build(7), audit_path=audit_path)
+    assert len(population) == 180 and {sum(bits) for bits in population} == {304}
+    assert meta['orbit_dedup'] is True and meta['held_out_evaluation'] is False
+    # Even whitespace changes must fail the provenance binding.
+    path.write_bytes(path.read_bytes() + b'\n')
+    with pytest.raises(ValueError, match='audit mismatch'):
+        read_population(path, Cube.build(7), audit_path=audit_path)
+    path.write_bytes((source / path.name).read_bytes())
+    audit = json.loads(audit_path.read_text())
+    audit['canonical_minimality_verified'] = False
+    audit_path.write_text(json.dumps(audit))
+    with pytest.raises(ValueError, match='incomplete orbit'):
+        read_population(path, Cube.build(7), audit_path=audit_path)
+    audit_path.write_bytes((source / audit_path.name).read_bytes())
+    config = load_config(ROOT / 'configs/graphgps/smoke.json')
+    config.update(max_wall_seconds=1e-9)
+    report = run_loop(config, tmp_path / 'run', device='cpu',
+                      population_path=path, population_audit=audit_path)
+    assert report['initial_population'] == 180 and report['initial_best'] == 304
+    assert report['population_source']['sha256'] == sha256(path.read_bytes()).hexdigest()
+    assert report['population_source']['orbit_dedup'] is True
+    assert report['training_steps_this_run'] == 0

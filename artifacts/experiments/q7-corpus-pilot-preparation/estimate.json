@@ -1,0 +1,16 @@
+{
+  "training_steps": 11000,
+  "generated_graphs": 12288,
+  "sample_batches": 384,
+  "full_graph_forward_calls": 172032,
+  "configured_wall_cap_hours": 0.9166666666666666,
+  "approx_forward_gflops_per_graph_prefix": 1.702887424,
+  "approx_total_matmul_pflops": 11.172685258162176,
+  "flops_scope": "Matmul estimate only; assumes full local+global architecture, backward about 2x forward; excludes gather, norms, masking and Python overhead.",
+  "basis": "Actual CUDA calibration; sequential repairs keep an allocated GPU idle.",
+  "train_gpu_hours": 0.10046823159791529,
+  "generation_gpu_hours": 0.16356191505988438,
+  "sequential_repair_cpu_hours": 0.02612772862116496,
+  "estimated_allocated_hours_excluding_paired_baseline_and_startup": 0.29015787527896464,
+  "estimated_allocated_hours_with_paired_baseline": 0.3162856039001296
+}

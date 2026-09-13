@@ -1,0 +1,13 @@
+  [OK] catalogue size: 19866
+  [OK] orbit count: 180
+  [OK] witness rows: 19866
+  [OK] catalogue SHA-256 matches certificate: a7e1a4c00ed8...
+  [OK] assignment identical to released census
+  [OK] orbit sizes match census catalogue_sizes
+  [OK] representatives are the minimal index of their orbit
+  [OK] representative witnesses are the identity
+  [OK] all 19,866 witnesses map representative to solution: 0 failures
+  [OK] all 180 canonical forms attained by their witness element: 0 failures
+  [OK] canonical forms pairwise distinct
+  [OK] canonical minimality re-verified for orbits 0..179: 0 failures
+RESULT: certificate verifies

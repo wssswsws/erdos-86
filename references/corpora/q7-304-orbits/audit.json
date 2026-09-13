@@ -1,0 +1,61 @@
+{
+  "schema": "erdos86.corpus.audit.v1",
+  "source_commit": "b94577fd5e06e62e1c6895b7e4d2b0abeaea411b",
+  "source_url": "https://github.com/minamominamoto/c4free-hypercube/tree/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b",
+  "inputs": {
+    "q7_edges_304.jsonl.part1": {
+      "sha256": "c6ab51d185047b2352406e88d498d9d606a1afadd6cdd1809791e3fc8d2b8c34",
+      "bytes": 21256807
+    },
+    "q7_edges_304.jsonl.part2": {
+      "sha256": "bf67e1b6c8779688787f6c919eceeea593855e333ff8199a15e84bd39050f791",
+      "bytes": 21266518
+    },
+    "q7_edges_304.jsonl.part3": {
+      "sha256": "b3b8fc36d71a17c2c47bfc60baf7f561d884fef73b362db31189669ff177afb6",
+      "bytes": 21266569
+    },
+    "q7_orbit_census.json": {
+      "sha256": "6f75462c283d66c671681c5fe72a16c7e4c85c753d14b94710d8c7a947f83480",
+      "bytes": 86881
+    },
+    "q7_orbit_witnesses.json": {
+      "sha256": "4e5d7667664b48291ea9d132ac1a07d7e2d3a92d140323d426508b31425ef8b7",
+      "bytes": 334603
+    },
+    "q7_orbit_witness_check.py": {
+      "sha256": "496c165a5e9b26f927eb1ef8e777705df11a5be875390175d47f556a42070ac5",
+      "bytes": 8007
+    },
+    "LICENSE": {
+      "sha256": "db06213186c5d7cc0c556b2c5d94c42eda57130b2ff4835de7a1aa8105b32aad",
+      "bytes": 1072
+    },
+    "ORIGINAL_DATA_SHA256SUMS.txt": {
+      "sha256": "5eef39ccb993a57785be212e77d818e65e8e5592c951097475e97b90917a5f18",
+      "bytes": 1524
+    }
+  },
+  "catalogue_rows": 19866,
+  "exact_label_unique": 19866,
+  "independently_verified_304_C4_free": 19866,
+  "witnesses_verified": 19866,
+  "representatives": 180,
+  "canonical_minimality_verified": true,
+  "catalogue_odd_square_count": 389,
+  "representative_odd_square_count": 6,
+  "square_histogram_classes": 7,
+  "population_sha256": "489123c8e442e7acc49bc5d8330a174f3ec63935ae13541b5fb0f8d1cec8b99e",
+  "verification_seconds": 23.945381124998676,
+  "verifier_sha256": "ede8a20a9418077524540a654bb7bd87e4e387f513fb4603f2e55497db6977ed",
+  "builder_sha256": "491c8673a48ac373a54b3a4d00386c6f715a184655bd548a01aa5659eb8de41c",
+  "scope": "Released catalogue only; no completeness claim for all 304-edge graphs; no held-out evaluation.",
+  "canonical_check": {
+    "checker": "q7_orbit_witness_check.py --canonical",
+    "exit_code": 0,
+    "representatives_checked": 180,
+    "group_elements_per_representative": 645120,
+    "log_sha256": "5a11e78f494cd55ad3c273b049fa106c5fb971ef5d1d36335554c491c2cc113e",
+    "implementation": "Reviewed upstream checker; complete rerun, not a second independent canonical algorithm."
+  }
+}

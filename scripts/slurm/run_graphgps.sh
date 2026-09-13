@@ -26,7 +26,7 @@ if git diff --quiet HEAD -- erdos86_gps configs/graphgps scripts/slurm; then
 else
     echo modified > "$run_dir/source-working-tree.txt"
 fi
-"$python_bin" - "$device" "$run_dir" "$seed" <<'PY'
+"$python_bin" - "$device" "$run_dir" "$seed" "${ERDOS86_CONFIG:-configs/graphgps/pilot.json}" <<'PY'
 import json
 from pathlib import Path
 import platform
@@ -48,7 +48,7 @@ hardware = {'device': device, 'gpu': torch.cuda.get_device_name(index),
 print(json.dumps(hardware, indent=2), flush=True)
 if torch.__version__.split('+')[0] != '2.10.0':
     raise SystemExit('This launch profile requires tested PyTorch 2.10.0; prepare the pinned environment first.')
-config = json.loads(Path('configs/graphgps/pilot.json').read_text())
+config = json.loads(Path(sys.argv[4]).read_text())
 config['seed'] = seed
 if not 0 < config['max_wall_seconds'] <= 14400:
     raise SystemExit('Pilot wall cap must be positive and at most 4 hours.')
@@ -63,7 +63,14 @@ if [[ "$mode" == benchmark ]]; then
     "$python_bin" -m erdos86_gps estimate --config "$config" \
         --calibration "$run_dir/benchmark.json" --output "$run_dir/estimate.json"
 else
+    population="${ERDOS86_POPULATION:-references/corpora/q7-304-orbits/representatives.jsonl}"
+    population_audit="${ERDOS86_POPULATION_AUDIT:-references/corpora/q7-304-orbits/audit.json}"
+    [[ -f "$population" && -f "$population_audit" ]] || {
+        echo 'Audited 304-edge population is required; fetch the corpus commit first.' >&2
+        exit 2
+    }
     "$python_bin" -m erdos86_gps run --execute --device "$device" \
-        --config "$config" --output "$run_dir"
+        --config "$config" --population "$population" --population-audit "$population_audit" \
+        --output "$run_dir"
     "$python_bin" -m erdos86_gps verify --candidate "$run_dir/best.json"
 fi

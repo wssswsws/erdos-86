@@ -54,7 +54,7 @@ def provenance():
             'cuda_version': torch.version.cuda}
 
 
-def read_population(path, cube):
+def read_population(path, cube, *, audit_path=None):
     raw = Path(path).read_bytes()
     population = set()
     rows = 0
@@ -69,12 +69,25 @@ def read_population(path, cube):
         rows += 1
     if not population:
         raise ValueError('Empty training population')
-    return [list(bits) for bits in sorted(population)], {'path': str(path), 'sha256': sha256(raw).hexdigest(),
-                                                       'rows': rows, 'exact_label_unique': len(population),
-                                                       'orbit_dedup': False}
+    meta = {'path': str(path), 'sha256': sha256(raw).hexdigest(),
+            'rows': rows, 'exact_label_unique': len(population), 'orbit_dedup': False}
+    if audit_path:
+        audit_raw = Path(audit_path).read_bytes()
+        audit = json.loads(audit_raw)
+        if (audit.get('schema') != 'erdos86.corpus.audit.v1'
+                or audit.get('population_sha256') != meta['sha256']
+                or audit.get('representatives') != rows or rows != len(population)
+                or audit.get('canonical_minimality_verified') is not True
+                or cube.n != 7 or any(sum(bits) != 304 for bits in population)):
+            raise ValueError('Population audit mismatch or incomplete orbit verification')
+        meta.update(orbit_dedup=True, audit_path=str(audit_path),
+                    audit_sha256=sha256(audit_raw).hexdigest(), source_commit=audit['source_commit'],
+                    orbit_scope='Initial population only; later elite updates use exact-label dedup.',
+                    held_out_evaluation=False)
+    return [list(bits) for bits in sorted(population)], meta
 
 
-def run_loop(config, output, *, device='cpu', checkpoint=None, population_path=None, smoke=False):
+def run_loop(config, output, *, device='cpu', checkpoint=None, population_path=None, population_audit=None, smoke=False):
     output = Path(output)
     if (output / 'report.json').exists() or (output / 'candidates.jsonl').exists():
         raise ValueError('Output already contains a run; choose a fresh directory')
@@ -87,13 +100,15 @@ def run_loop(config, output, *, device='cpu', checkpoint=None, population_path=N
     population_source = None
     if checkpoint and population_path:
         raise ValueError('Use either a checkpoint population or --population, not both')
+    if population_audit and not population_path:
+        raise ValueError('Population audit requires --population')
     if checkpoint:
         trainer, population, _ = Trainer.load(checkpoint, device=device)
         if trainer.model.config != ModelConfig(**config['model']):
             raise ValueError('Checkpoint architecture and run config differ')
     else:
         if population_path:
-            population, population_source = read_population(population_path, cube)
+            population, population_source = read_population(population_path, cube, audit_path=population_audit)
         else:
             population = bootstrap(cube, seed_bits, config['initial_population'], config['seed'])
         trainer = Trainer(Generator(ModelConfig(**config['model'])), device=device, seed=config['seed'])
@@ -109,7 +124,7 @@ def run_loop(config, output, *, device='cpu', checkpoint=None, population_path=N
               'population_source': population_source,
               'best_source': 'initial_population',
               'initial_population': initial_population_size,
-              'data_scope': 'Training population; exact-label dedup only. No audited orbit split and no held-out generalization claim.',
+              'data_scope': 'Training population; see population_source for initial orbit audit. Later elites use exact-label dedup. No held-out generalization claim.',
               'resume_semantics': 'Restores trainer and population; this invocation starts a new bounded set of rounds.',
               'training_seconds': 0.0, 'generation_seconds': 0.0, 'repair_seconds': 0.0,
               'baseline_seconds': 0.0, 'sampled_graphs': 0, 'losses': [], 'rounds': [],
@@ -354,6 +369,7 @@ def main():
     parser.add_argument('--threads', type=int, default=2)
     parser.add_argument('--checkpoint')
     parser.add_argument('--population', help='Optional verified JSONL edge-list training population')
+    parser.add_argument('--population-audit', help='Audit JSON binding the initial orbit representatives by SHA-256')
     parser.add_argument('--calibration')
     parser.add_argument('--steps', type=int, default=20)
     parser.add_argument('--wall-seconds', type=float, default=60)
@@ -381,7 +397,8 @@ def main():
             parser.error('This local smoke is CPU-only; use benchmark for external CUDA')
         run_loop(config, args.output or ROOT / 'artifacts/experiments/graphgps-smoke', device='cpu', smoke=True)
     elif args.command == 'run':
-        run_loop(config, args.output, device=args.device, checkpoint=args.checkpoint, population_path=args.population)
+        run_loop(config, args.output, device=args.device, checkpoint=args.checkpoint,
+                 population_path=args.population, population_audit=args.population_audit)
     elif args.command == 'benchmark':
         benchmark(config, device=args.device, steps=args.steps, output=args.output or 'graphgps-benchmark.json')
     elif args.command == 'estimate':
