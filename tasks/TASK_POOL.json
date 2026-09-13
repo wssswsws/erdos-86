@@ -1,7 +1,7 @@
 {
   "schema_version": "iteris.task_pool.v0",
   "project_id": "erdos-86",
-  "updated_at": "2026-09-12T23:02:32.978531Z",
+  "updated_at": "2026-09-13T01:37:24.923280Z",
   "active_frontier": "",
   "tasks": [
     {
@@ -146,7 +146,7 @@
       "task_id": "task-graphgps-q7-gpu-pilot",
       "mode": "experiment",
       "objective": "用户连接外部 GPU 后先运行 CUDA 吞吐/显存校准，再执行有明确总时限的路线4试验和纯局部搜索对照。",
-      "status": "running",
+      "status": "done",
       "priority": 100,
       "dependencies": [
         "task-graphgps-q7-smoke"
@@ -154,20 +154,50 @@
       "inputs": [
         "docs/graphgps-route4.md",
         "configs/graphgps/pilot.json",
-        "artifacts/experiments/graphgps-smoke/gpu-budget.json"
+        "artifacts/experiments/graphgps-smoke/gpu-budget.json",
+        "configs/graphgps/corpus-pilot.json",
+        "references/corpora/q7-304-orbits/representatives.jsonl",
+        "docs/corpus-single-gpu-pilot.md"
       ],
       "expected_outputs": [
-        "artifacts/experiments/graphgps-gpu-pilot/report.json"
+        "artifacts/experiments/slurm-21925840/pilot-seed-8601/report.json",
+        "artifacts/experiments/slurm-21925840/analysis/analysis.json",
+        "docs/corpus-pilot-21925840-results.md"
       ],
       "assigned_agent_run": null,
       "notes": [
         "按用户要求暂停，等待外部 GPU；本轮不得启动正式 GPU 训练。",
         "smoke已完成；按用户明确指令等待连接外部GPU。首先CUDA benchmark校准卡时与显存，不自动执行。",
         "User explicitly authorized submission now. A100 calibration 21924947 passed; use audited 180-orbit corpus and corpus-pilot.sbatch (seed 8601), one A100, 55-minute program cap and one-hour Slurm limit. Estimated 0.316 GPU-hours plus overhead. Awaiting the actual Slurm job id.",
-        "Submitted exactly one job: 21925840. Observed RUNNING on g-10-01; NVIDIA A100 80GB PCIe, visible_gpu_count=1, BF16 supported, training steps 100..900 in startup log. Code 46dd29801eef68c54151241805462fe4eb83977e. Actual output: artifacts/experiments/slurm-21925840/pilot-seed-8601/. Await result; no completion or 305 claim."
+        "Submitted exactly one job: 21925840. Observed RUNNING on g-10-01; NVIDIA A100 80GB PCIe, visible_gpu_count=1, BF16 supported, training steps 100..900 in startup log. Code 46dd29801eef68c54151241805462fe4eb83977e. Actual output: artifacts/experiments/slurm-21925840/pilot-seed-8601/. Await result; no completion or 305 claim.",
+        "作业 21925840 已正常完成并经 Horizon 回传；Slurm COMPLETED/0:0，单 A100 80GB，19:39（0.3275 GPU 小时），11,000 步、12,288 张。原始生成最高 286，修复后最高 290；最终 304 来自初始 180 图，无 305。全部保存的修复候选通过本地独立整数复核。结果与局限见 docs/corpus-pilot-21925840-results.md；实际产物 artifacts/experiments/slurm-21925840/pilot-seed-8601/ 和 analysis/。本任务完成表示试验与结果审核完成，不表示数学目标解决。不续训或提交新 GPU 作业。"
       ],
       "created_at": "2026-09-12T23:35:26.520555Z",
-      "updated_at": "2026-09-13T00:58:05.827239Z"
+      "updated_at": "2026-09-13T01:37:24.923280Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-graphgps-q7-pilot-diagnostics",
+      "mode": "algorithm",
+      "objective": "基于首次语料单卡试验，设计固定前缀评价、保持 304 参考池权重的精英采样对照，并补充可复核的原始/基线候选保存方案。",
+      "status": "paused",
+      "priority": 100,
+      "dependencies": [
+        "task-graphgps-q7-gpu-pilot"
+      ],
+      "inputs": [
+        "docs/corpus-pilot-21925840-results.md",
+        "artifacts/experiments/slurm-21925840/analysis/analysis.json"
+      ],
+      "expected_outputs": [
+        "docs/graphgps-pilot-diagnostic-plan.md"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "由结果审核登记的后续建议，尚未启动。需先明确对照方案、预算与下一次执行范围；本次只回传并更新记录，不修改训练算法、不自动续训或提交 GPU 作业。"
+      ],
+      "created_at": "2026-09-13T01:36:19.686807Z",
+      "updated_at": "2026-09-13T01:36:19.686807Z"
     }
   ]
 }

@@ -1,0 +1,454 @@
+{
+  "schema": "erdos86.pilot.audit.v1",
+  "run_directory": "artifacts/experiments/slurm-21925840/pilot-seed-8601",
+  "input_sha256": {
+    "best.json": "34bd096176d8e4b486f78d0cc90984fc8290349db13d1285783fda87db7ccce9",
+    "candidates.jsonl.gz": "407ba3c18b041d55028671ce65c7f4ab845a47223fa5d1f6249846508e5e6ceb",
+    "config.json": "45ea85defa6b3adb324d4f96f349d40d55b91ef6c2cd8f4779523a3056cfb7cd",
+    "exit-code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "git-revision.txt": "e30de2ee5fa6d897f636037a2e3ea352a3e89ca6b75dbada5184e24c7e534588",
+    "hardware.json": "d095616c08722baa775c381e169f3b9f6241dc8cd8c69c8f93daac54e96d7f8a",
+    "report.json": "b38accdd8cd51ff55e2b1e8711590beec1d2f9c8b194076e5fe5c6cf755a9bcc",
+    "run-config.json": "45ea85defa6b3adb324d4f96f349d40d55b91ef6c2cd8f4779523a3056cfb7cd",
+    "sacct.txt": "db3e36795cd533a8cb61acfdfdffd873a315c14eccca9ecdd16e5845f52c15bb",
+    "slurm.err": "b7ad1abab84fdaaa0e0d0015aa77c317c0b502bbc62b17699c469226db79b03c",
+    "slurm.out": "67875f9318883b646a0b7f5f7608981ba74d5c207bf0a9f78606ebe90bd0d51c",
+    "source-working-tree.txt": "2e22da2ab13713309ac75219e525b8e06ed02f3f1963b8feef203fa25827f93d"
+  },
+  "source_hashes_match": true,
+  "population_and_audit_hashes_match": true,
+  "verified_saved_repaired_graphs": 12288,
+  "repaired_unique_labels": 12288,
+  "best_validation": {
+    "n": 7,
+    "edges": 304,
+    "C4_violations": 0,
+    "common_neighbor_pair_collisions": 0,
+    "square_histogram": {
+      "1": 87,
+      "2": 18,
+      "3": 567
+    },
+    "empty_squares": 0,
+    "opposite_two_edge_squares": 0,
+    "degree_histogram": {
+      "4": 32,
+      "5": 96
+    }
+  },
+  "best_is_in_initial_population": true,
+  "best_source": "initial_population",
+  "training_steps": 11000,
+  "rounds": [
+    {
+      "round": 1,
+      "raw": {
+        "n": 4096,
+        "min": 266,
+        "mean": 275.28662109375,
+        "median": 275.0,
+        "max": 286,
+        "histogram": {
+          "266": 4,
+          "267": 3,
+          "268": 14,
+          "269": 42,
+          "270": 86,
+          "271": 180,
+          "272": 303,
+          "273": 393,
+          "274": 553,
+          "275": 601,
+          "276": 589,
+          "277": 496,
+          "278": 360,
+          "279": 233,
+          "280": 132,
+          "281": 58,
+          "282": 23,
+          "283": 18,
+          "284": 5,
+          "285": 2,
+          "286": 1
+        }
+      },
+      "repaired": {
+        "n": 4096,
+        "min": 271,
+        "mean": 279.351318359375,
+        "median": 279.0,
+        "max": 290,
+        "histogram": {
+          "271": 1,
+          "272": 8,
+          "273": 27,
+          "274": 67,
+          "275": 156,
+          "276": 274,
+          "277": 423,
+          "278": 556,
+          "279": 662,
+          "280": 618,
+          "281": 498,
+          "282": 362,
+          "283": 227,
+          "284": 121,
+          "285": 58,
+          "286": 27,
+          "287": 6,
+          "288": 1,
+          "289": 3,
+          "290": 1
+        }
+      },
+      "paired_baseline": {
+        "n": 4096,
+        "min": 304,
+        "mean": 304,
+        "median": 304.0,
+        "max": 304,
+        "histogram": {
+          "304": 4096
+        }
+      },
+      "repaired_unique_labels": 4096,
+      "beat_baseline_count": 0,
+      "tie_baseline_count": 0,
+      "elite_score_distribution": {
+        "n": 512,
+        "min": 283,
+        "mean": 291.109375,
+        "median": 285.0,
+        "max": 304,
+        "histogram": {
+          "283": 115,
+          "284": 121,
+          "285": 58,
+          "286": 27,
+          "287": 6,
+          "288": 1,
+          "289": 3,
+          "290": 1,
+          "304": 180
+        }
+      }
+    },
+    {
+      "round": 2,
+      "raw": {
+        "n": 4096,
+        "min": 264,
+        "mean": 274.27685546875,
+        "median": 274.0,
+        "max": 285,
+        "histogram": {
+          "264": 1,
+          "265": 3,
+          "266": 7,
+          "267": 19,
+          "268": 45,
+          "269": 99,
+          "270": 178,
+          "271": 318,
+          "272": 450,
+          "273": 524,
+          "274": 528,
+          "275": 561,
+          "276": 464,
+          "277": 353,
+          "278": 261,
+          "279": 164,
+          "280": 71,
+          "281": 32,
+          "282": 13,
+          "283": 2,
+          "284": 2,
+          "285": 1
+        }
+      },
+      "repaired": {
+        "n": 4096,
+        "min": 271,
+        "mean": 279.39111328125,
+        "median": 279.0,
+        "max": 288,
+        "histogram": {
+          "271": 3,
+          "272": 6,
+          "273": 18,
+          "274": 55,
+          "275": 108,
+          "276": 248,
+          "277": 462,
+          "278": 583,
+          "279": 673,
+          "280": 648,
+          "281": 503,
+          "282": 376,
+          "283": 232,
+          "284": 101,
+          "285": 52,
+          "286": 20,
+          "287": 5,
+          "288": 3
+        }
+      },
+      "paired_baseline": {
+        "n": 4096,
+        "min": 304,
+        "mean": 304,
+        "median": 304.0,
+        "max": 304,
+        "histogram": {
+          "304": 4096
+        }
+      },
+      "repaired_unique_labels": 4096,
+      "beat_baseline_count": 0,
+      "tie_baseline_count": 0,
+      "elite_score_distribution": {
+        "n": 512,
+        "min": 284,
+        "mean": 291.56640625,
+        "median": 285.0,
+        "max": 304,
+        "histogram": {
+          "284": 156,
+          "285": 110,
+          "286": 47,
+          "287": 11,
+          "288": 4,
+          "289": 3,
+          "290": 1,
+          "304": 180
+        }
+      }
+    },
+    {
+      "round": 3,
+      "raw": {
+        "n": 4096,
+        "min": 258,
+        "mean": 270.043701171875,
+        "median": 270.0,
+        "max": 281,
+        "histogram": {
+          "258": 1,
+          "259": 1,
+          "260": 4,
+          "261": 7,
+          "262": 28,
+          "263": 46,
+          "264": 95,
+          "265": 155,
+          "266": 194,
+          "267": 314,
+          "268": 431,
+          "269": 473,
+          "270": 529,
+          "271": 475,
+          "272": 450,
+          "273": 358,
+          "274": 210,
+          "275": 153,
+          "276": 89,
+          "277": 37,
+          "278": 21,
+          "279": 18,
+          "280": 5,
+          "281": 2
+        }
+      },
+      "repaired": {
+        "n": 4096,
+        "min": 269,
+        "mean": 278.085693359375,
+        "median": 278.0,
+        "max": 287,
+        "histogram": {
+          "269": 1,
+          "270": 1,
+          "271": 14,
+          "272": 27,
+          "273": 76,
+          "274": 153,
+          "275": 334,
+          "276": 474,
+          "277": 615,
+          "278": 636,
+          "279": 619,
+          "280": 465,
+          "281": 340,
+          "282": 178,
+          "283": 102,
+          "284": 42,
+          "285": 11,
+          "286": 7,
+          "287": 1
+        }
+      },
+      "paired_baseline": {
+        "n": 4096,
+        "min": 304,
+        "mean": 304,
+        "median": 304.0,
+        "max": 304,
+        "histogram": {
+          "304": 4096
+        }
+      },
+      "repaired_unique_labels": 4096,
+      "beat_baseline_count": 0,
+      "tie_baseline_count": 0,
+      "elite_score_distribution": {
+        "n": 512,
+        "min": 284,
+        "mean": 291.62109375,
+        "median": 285.0,
+        "max": 304,
+        "histogram": {
+          "284": 137,
+          "285": 121,
+          "286": 54,
+          "287": 12,
+          "288": 4,
+          "289": 3,
+          "290": 1,
+          "304": 180
+        }
+      }
+    }
+  ],
+  "best_model_repaired": {
+    "n": 7,
+    "validation": {
+      "n": 7,
+      "edges": 290,
+      "C4_violations": 0,
+      "common_neighbor_pair_collisions": 0,
+      "square_histogram": {
+        "0": 8,
+        "1": 80,
+        "2": 92,
+        "3": 492
+      },
+      "empty_squares": 8,
+      "opposite_two_edge_squares": 28,
+      "degree_histogram": {
+        "3": 4,
+        "4": 56,
+        "5": 64,
+        "6": 4
+      }
+    },
+    "round": 1,
+    "index": 1645,
+    "source": "repaired_model_sample"
+  },
+  "loss_stages": [
+    {
+      "all": {
+        "first_step": 1,
+        "last_step": 5000,
+        "mean_loss": 0.19885868468135595,
+        "mean_trainable_fraction": 0.851175,
+        "conditional_BCE_nonforced": 0.23362843678603806
+      },
+      "first_500": {
+        "first_step": 1,
+        "last_step": 500,
+        "mean_loss": 0.3882715954482555,
+        "mean_trainable_fraction": 0.84675,
+        "conditional_BCE_nonforced": 0.4585433663398353
+      },
+      "last_500": {
+        "first_step": 4501,
+        "last_step": 5000,
+        "mean_loss": 0.15501596435531975,
+        "mean_trainable_fraction": 0.8538125,
+        "conditional_BCE_nonforced": 0.1815573845022411
+      }
+    },
+    {
+      "all": {
+        "first_step": 5001,
+        "last_step": 7000,
+        "mean_loss": 0.23789546719379723,
+        "mean_trainable_fraction": 0.851265625,
+        "conditional_BCE_nonforced": 0.27946091115073185
+      },
+      "first_500": {
+        "first_step": 5001,
+        "last_step": 5500,
+        "mean_loss": 0.2446121472120285,
+        "mean_trainable_fraction": 0.8528125,
+        "conditional_BCE_nonforced": 0.2868299271082782
+      },
+      "last_500": {
+        "first_step": 6501,
+        "last_step": 7000,
+        "mean_loss": 0.23302428414672613,
+        "mean_trainable_fraction": 0.8505625,
+        "conditional_BCE_nonforced": 0.2739649163309294
+      }
+    },
+    {
+      "all": {
+        "first_step": 7001,
+        "last_step": 9000,
+        "mean_loss": 0.23391404133476318,
+        "mean_trainable_fraction": 0.853640625,
+        "conditional_BCE_nonforced": 0.2740193407908195
+      },
+      "first_500": {
+        "first_step": 7001,
+        "last_step": 7500,
+        "mean_loss": 0.23782975751161575,
+        "mean_trainable_fraction": 0.8580625,
+        "conditional_BCE_nonforced": 0.27717066939950846
+      },
+      "last_500": {
+        "first_step": 8501,
+        "last_step": 9000,
+        "mean_loss": 0.23723864625394345,
+        "mean_trainable_fraction": 0.8535,
+        "conditional_BCE_nonforced": 0.277959749565253
+      }
+    },
+    {
+      "all": {
+        "first_step": 9001,
+        "last_step": 11000,
+        "mean_loss": 0.2311994609143585,
+        "mean_trainable_fraction": 0.854625,
+        "conditional_BCE_nonforced": 0.2705273785746479
+      },
+      "first_500": {
+        "first_step": 9001,
+        "last_step": 9500,
+        "mean_loss": 0.23653636821359397,
+        "mean_trainable_fraction": 0.8518125,
+        "conditional_BCE_nonforced": 0.27768595578674177
+      },
+      "last_500": {
+        "first_step": 10501,
+        "last_step": 11000,
+        "mean_loss": 0.2271389482319355,
+        "mean_trainable_fraction": 0.8595,
+        "conditional_BCE_nonforced": 0.2642687006770628
+      }
+    }
+  ],
+  "timing_seconds": {
+    "wall_seconds": 1173.19278060738,
+    "training_seconds": 358.43244244530797,
+    "generation_seconds": 583.1715742433444,
+    "repair_seconds": 92.58037825115025,
+    "baseline_seconds": 88.40922189876437
+  },
+  "peak_cuda_allocated_bytes": 543417856,
+  "audit_seconds": 12.39863283399609,
+  "verification_scope": "All saved repaired edge lists and final best reverified. Raw and paired-baseline edge lists were not saved; their counts are cross-checked against reports, not independently reverified.",
+  "comparison_scope": "Paired repair counts only; NOT equal total compute.",
+  "held_out_evaluation": false
+}
