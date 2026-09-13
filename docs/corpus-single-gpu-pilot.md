@@ -2,6 +2,8 @@
 
 用户于 2026-09-12 授权：接入经过验证的多样 304 边构造，然后提交一次单卡试验。
 
+**提交记录：作业 21925840 已成功提交并观察到 RUNNING，节点 g-10-01，实际为单张 A100 80GB PCIe。启动日志已出现训练第 100–900 步；这只确认成功启动，试验尚未结束。运行代码为 `46dd29801eef68c54151241805462fe4eb83977e`。** 机器可读记录见[submission.json](../artifacts/experiments/q7-corpus-pilot-preparation/submission.json)。
+
 ## 本次变化
 
 初始训练集从单个已知 304 边构造及质量不均的 bootstrap，改为公开目录的 **180 个不同立方体对称轨道代表，每个都是经过验证的 304 边构造**。验证记录、原始来源和限制见[语料说明](../references/corpora/q7-304-orbits/README.md)。
