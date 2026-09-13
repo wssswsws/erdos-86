@@ -1,0 +1,15 @@
+{
+  "tests_passed": 21,
+  "two_arm_cpu_smoke": "completed",
+  "training_steps_per_arm": 3,
+  "saved_graphs_reverified": {
+    "main_graphs": 16,
+    "evaluation_graphs": 24
+  },
+  "initial_weights_match": true,
+  "fixed_evaluation_cases_match": true,
+  "checkpoint_files_present": true,
+  "login_node_training_guard": "passed",
+  "shell_syntax": "passed",
+  "CUDA_scope": "Not run locally; allocation runs tests before starting suite."
+}

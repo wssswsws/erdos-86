@@ -1,7 +1,7 @@
 {
   "schema_version": "iteris.task_pool.v0",
   "project_id": "erdos-86",
-  "updated_at": "2026-09-13T01:37:24.923280Z",
+  "updated_at": "2026-09-13T02:07:01.667716Z",
   "active_frontier": "",
   "tasks": [
     {
@@ -180,7 +180,7 @@
       "task_id": "task-graphgps-q7-pilot-diagnostics",
       "mode": "algorithm",
       "objective": "基于首次语料单卡试验，设计固定前缀评价、保持 304 参考池权重的精英采样对照，并补充可复核的原始/基线候选保存方案。",
-      "status": "paused",
+      "status": "done",
       "priority": 100,
       "dependencies": [
         "task-graphgps-q7-gpu-pilot"
@@ -194,10 +194,36 @@
       ],
       "assigned_agent_run": null,
       "notes": [
-        "由结果审核登记的后续建议，尚未启动。需先明确对照方案、预算与下一次执行范围；本次只回传并更新记录，不修改训练算法、不自动续训或提交 GPU 作业。"
+        "由结果审核登记的后续建议，尚未启动。需先明确对照方案、预算与下一次执行范围；本次只回传并更新记录，不修改训练算法、不自动续训或提交 GPU 作业。",
+        "用户已授权实施并再次提交训练。已完成参考池80%权重与legacy_topk对照、144/36轨道划分、固定前缀及未训练/阶段生成评测、阶段checkpoint、完整候选gzip记录，以及可暂时退步的区域扰动搜索。21项测试及两组CPU smoke通过，40份保存的图再次验证通过。计划 docs/graphgps-pilot-diagnostic-plan.md；验证 artifacts/experiments/diagnostics-preparation/validation.json。"
       ],
       "created_at": "2026-09-13T01:36:19.686807Z",
-      "updated_at": "2026-09-13T01:36:19.686807Z"
+      "updated_at": "2026-09-13T02:07:01.520186Z"
+    },
+    {
+      "schema_version": "iteris.task_pool_task.v0",
+      "task_id": "task-graphgps-q7-diagnostic-suite",
+      "mode": "experiment",
+      "objective": "执行参考池80%权重与均匀回填的三种子单A100对照；审核固定评测、原始/修复生成质量与完整候选，判断是否值得继续投入。",
+      "status": "ready",
+      "priority": 100,
+      "dependencies": [
+        "task-graphgps-q7-pilot-diagnostics"
+      ],
+      "inputs": [
+        "docs/graphgps-pilot-diagnostic-plan.md",
+        "configs/graphgps/diagnostics.json"
+      ],
+      "expected_outputs": [
+        "docs/graphgps-diagnostic-suite-results.md",
+        "artifacts/experiments/diagnostics-submissions/"
+      ],
+      "assigned_agent_run": null,
+      "notes": [
+        "用户明确授权再次提交训练。六次运行顺序使用1张A100，每次19000步、6144主搜索样本和1280阶段评测样本；单次程序30分钟，套件软限3.5小时，Slurm硬限4小时。代码使用独立worktree固定版本。当前等待推送与实际Slurm提交，未声明GPU已经运行。"
+      ],
+      "created_at": "2026-09-13T02:07:01.667711Z",
+      "updated_at": "2026-09-13T02:07:01.667711Z"
     }
   ]
 }

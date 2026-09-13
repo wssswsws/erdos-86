@@ -1,0 +1,30 @@
+{
+  "model": {"n": 7, "width": 128, "layers": 4, "heads": 8},
+  "arms": ["reference80", "legacy_topk"],
+  "seeds": [8611, 8612, 8613],
+  "population": "references/corpora/q7-304-orbits/representatives.jsonl",
+  "population_audit": "references/corpora/q7-304-orbits/audit.json",
+  "heldout_orbits": 36,
+  "split_seed": 860086,
+  "reference_fraction": 0.8,
+  "elite_size": 512,
+  "batch_size": 32,
+  "pretrain_steps": 10000,
+  "rounds": 3,
+  "samples_per_round": 2048,
+  "sample_batch_size": 32,
+  "round_train_steps": 3000,
+  "eval_prefixes": 1024,
+  "eval_samples": 256,
+  "eval_seed": 8600860,
+  "local_search": {
+    "kicks": 16,
+    "kick_min": 8,
+    "kick_max": 24,
+    "temperature_start": 2.0,
+    "temperature_end": 0.25,
+    "kick_mode": "mixed"
+  },
+  "max_wall_seconds": 1800,
+  "suite_wall_seconds": 12600
+}

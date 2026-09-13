@@ -1,5 +1,6 @@
 """Bounded classical baseline / local phase. No upstream search code imported."""
 import random
+import math
 from .verify import verify_edges
 
 
@@ -25,22 +26,46 @@ def repair(cube, bits, rng):
     return bits
 
 
-def local_search(cube, bits, *, seed, kicks=16, kick_min=4, kick_max=12):
+def local_search(cube, bits, *, seed, kicks=16, kick_min=4, kick_max=12,
+                 temperature_start=0.0, temperature_end=0.0, kick_mode='random', stats=None):
+    if (kicks < 0 or kick_min < 1 or kick_max < kick_min
+            or temperature_start < 0 or temperature_end < 0
+            or kick_mode not in {'random', 'mixed'}):
+        raise ValueError('Invalid local search configuration')
     rng = random.Random(seed)
     best = current = repair(cube, bits, rng)
-    for _ in range(kicks):
+    if stats is not None:
+        stats.update(accepted_downhill=0, accepted_plateau=0, best_edges=sum(best))
+    for step in range(kicks):
         present = [i for i, value in enumerate(current) if value]
         proposal = current.copy()
         k = min(len(present), rng.randint(kick_min, kick_max))
-        for e in rng.sample(present, k):
+        if kick_mode == 'mixed' and k and rng.random() < 0.5:
+            # Grow a region through shared square constraints, then fill if disconnected.
+            chosen = {rng.choice(present)}
+            while len(chosen) < k:
+                adjacent = {j for e in chosen for f in cube.edge_faces[e] for j in cube.faces[f]
+                            if current[j] and j not in chosen}
+                chosen.add(rng.choice(sorted(adjacent or (set(present) - chosen))))
+        else:
+            chosen = rng.sample(present, k)
+        for e in chosen:
             proposal[e] = 0
         candidate = repair(cube, proposal, rng)
-        # Accept plateau movement; best witness is kept separately.
-        if sum(candidate) >= sum(current):
+        delta = sum(candidate) - sum(current)
+        temperature = temperature_start + (temperature_end - temperature_start) * step / max(kicks - 1, 1)
+        accept = delta >= 0 or (temperature > 0 and rng.random() < math.exp(delta / temperature))
+        # Current may move downhill; the independently checked best is never lost.
+        if accept:
             current = candidate
+            if stats is not None:
+                stats['accepted_downhill'] += int(delta < 0)
+                stats['accepted_plateau'] += int(delta == 0)
         if sum(candidate) > sum(best):
             best = candidate
     verify_edges(cube.n, cube.decode(best))
+    if stats is not None:
+        stats['best_edges'] = sum(best)
     return best
 
 

@@ -1,0 +1,9 @@
+{
+  "seconds_per_graph": {
+    "model": 0.005915057937727397,
+    "known304": 0.005701285812847345,
+    "empty": 0.00615987695300646
+  },
+  "trials_per_start": 64,
+  "scope": "Local Mac CPU estimate only; cluster CPU speed is unmeasured."
+}

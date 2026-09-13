@@ -1,0 +1,76 @@
+{
+  "schema": "erdos86.diagnostic.suite.v1",
+  "status": "completed",
+  "runs": [
+    {
+      "seed": 8611,
+      "arm": "reference80",
+      "directory": "reference80-seed-8611",
+      "status": "completed",
+      "training_steps": 3,
+      "sampled_graphs": 2,
+      "wall_seconds": 5.222027584008174,
+      "best": 304,
+      "best_model": 277
+    },
+    {
+      "seed": 8611,
+      "arm": "legacy_topk",
+      "directory": "legacy_topk-seed-8611",
+      "status": "completed",
+      "training_steps": 3,
+      "sampled_graphs": 2,
+      "wall_seconds": 4.922797832987271,
+      "best": 304,
+      "best_model": 277
+    }
+  ],
+  "config": {
+    "model": {
+      "n": 7,
+      "width": 16,
+      "layers": 2,
+      "heads": 4
+    },
+    "arms": [
+      "reference80",
+      "legacy_topk"
+    ],
+    "seeds": [
+      8611
+    ],
+    "population": "references/corpora/q7-304-orbits/representatives.jsonl",
+    "population_audit": "references/corpora/q7-304-orbits/audit.json",
+    "heldout_orbits": 36,
+    "split_seed": 860086,
+    "reference_fraction": 0.8,
+    "elite_size": 512,
+    "batch_size": 2,
+    "pretrain_steps": 2,
+    "rounds": 1,
+    "samples_per_round": 2,
+    "sample_batch_size": 2,
+    "round_train_steps": 1,
+    "eval_prefixes": 8,
+    "eval_samples": 2,
+    "eval_seed": 8600860,
+    "local_search": {
+      "kicks": 16,
+      "kick_min": 8,
+      "kick_max": 24,
+      "temperature_start": 2.0,
+      "temperature_end": 0.25,
+      "kick_mode": "mixed"
+    },
+    "max_wall_seconds": 120,
+    "suite_wall_seconds": 300
+  },
+  "smoke": true,
+  "hardware": {
+    "device": "cpu",
+    "python": "3.13.7",
+    "torch": "2.10.0"
+  },
+  "git_revision": "a78ccfeda450755e01659f003a4b0f5cb767334d",
+  "wall_seconds": 10.254842708003707
+}

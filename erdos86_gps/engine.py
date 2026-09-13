@@ -40,8 +40,15 @@ class Trainer:
         self.augment_rng = random.Random(seed + 1)
         self.steps = 0
 
-    def batch(self, population, batch_size, *, augment=True):
-        ids = torch.randint(len(population), (batch_size,), generator=self.rng).tolist()
+    def batch(self, population, batch_size, *, augment=True, sample_weights=None):
+        if sample_weights is None:
+            ids = torch.randint(len(population), (batch_size,), generator=self.rng).tolist()
+        else:
+            weights = torch.as_tensor(sample_weights, dtype=torch.float64, device='cpu')
+            if (weights.shape != (len(population),) or not torch.isfinite(weights).all()
+                    or torch.any(weights < 0) or weights.sum() <= 0):
+                raise ValueError('Invalid population sampling weights')
+            ids = torch.multinomial(weights, batch_size, replacement=True, generator=self.rng).tolist()
         rows = []
         for index in ids:
             bits = population[index]
@@ -60,9 +67,10 @@ class Trainer:
         labels = targets.gather(1, query).squeeze(1).float()
         return states, ranks, steps, query, labels
 
-    def train_step(self, population, batch_size, *, augment=True):
+    def train_step(self, population, batch_size, *, augment=True, sample_weights=None):
         self.model.train()
-        states, ranks, steps, query, labels = self.batch(population, batch_size, augment=augment)
+        states, ranks, steps, query, labels = self.batch(population, batch_size, augment=augment,
+                                                       sample_weights=sample_weights)
         allowed = allowed_additions(states, self.model.faces, self.model.edge_faces).gather(1, query).squeeze(1)
         if torch.any((~allowed) & (labels == 1)):
             raise ValueError('Training example violates a square constraint')

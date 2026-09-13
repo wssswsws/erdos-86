@@ -32,5 +32,6 @@ artifacts/experiments/**/*.pt.tmp
 /logs/
 /slurm-*.out
 /transfer/
+/.runs/
 # Full upstream catalogue is reproducibly downloaded; ship the audited representatives.
 /references/corpora/minamoto-b94577f/q7_edges_304.jsonl.part*

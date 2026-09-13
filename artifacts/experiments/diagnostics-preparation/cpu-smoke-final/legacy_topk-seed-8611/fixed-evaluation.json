@@ -1,0 +1,12 @@
+{
+  "train": {
+    "seed": 8600860,
+    "count": 8,
+    "sha256": "76238a26900557e03e9a01b987b96cb74a28743ffaeee618f3e2aa544a05d525"
+  },
+  "heldout": {
+    "seed": 8600861,
+    "count": 8,
+    "sha256": "36b426e897d062dab0bcaf31d60355b302444a15b0908980b6920d56eefd7015"
+  }
+}
