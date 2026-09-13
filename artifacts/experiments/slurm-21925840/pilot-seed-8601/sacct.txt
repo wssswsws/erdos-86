@@ -1,0 +1,8 @@
+Script started on 2026-09-12 21:28:30-04:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="81" LINES="41"]
+JobID|State|ExitCode|Elapsed|AllocTRES
+21925840|COMPLETED|0:0|00:19:39|billing=48,cpu=4,gres/gpu=1,mem=16G,node=1
+21925840.batch|COMPLETED|0:0|00:19:39|cpu=4,gres/gpu=1,mem=16G,node=1
+21925840.extern|COMPLETED|0:0|00:19:39|billing=48,cpu=4,gres/gpu=1,mem=16G,node=1
+21925840.0|COMPLETED|0:0|00:19:39|cpu=4,gres/gpu=1,mem=16G,node=1
+
+Script done on 2026-09-12 21:28:30-04:00 [COMMAND_EXIT_CODE="0"]

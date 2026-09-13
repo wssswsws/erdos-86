@@ -1,0 +1,10 @@
+{
+  "device": "cuda:0",
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "visible_gpu_count": 1,
+  "python": "3.13.13",
+  "torch": "2.10.0+cu126",
+  "cuda": "12.6",
+  "total_gpu_memory_bytes": 85094825984,
+  "bf16_supported": true
+}

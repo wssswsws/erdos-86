@@ -1,0 +1,523 @@
+{
+  "device": "cuda:0",
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "visible_gpu_count": 1,
+  "python": "3.13.13",
+  "torch": "2.10.0+cu126",
+  "cuda": "12.6",
+  "total_gpu_memory_bytes": 85094825984,
+  "bf16_supported": true
+}
+Output directory: /home/wangs18/erdos-86/artifacts/experiments/slurm-21925840/pilot-seed-8601
+{"phase": "train", "step": 100, "loss": 0.373126357793808}
+{"phase": "train", "step": 200, "loss": 0.3131019175052643}
+{"phase": "train", "step": 300, "loss": 0.4356013834476471}
+{"phase": "train", "step": 400, "loss": 0.3827354907989502}
+{"phase": "train", "step": 500, "loss": 0.45176059007644653}
+{"phase": "train", "step": 600, "loss": 0.3078393042087555}
+{"phase": "train", "step": 700, "loss": 0.2406303435564041}
+{"phase": "train", "step": 800, "loss": 0.2362634241580963}
+{"phase": "train", "step": 900, "loss": 0.3361760973930359}
+{"phase": "train", "step": 1000, "loss": 0.21319927275180817}
+{"phase": "train", "step": 1100, "loss": 0.1765364408493042}
+{"phase": "train", "step": 1200, "loss": 0.29871267080307007}
+{"phase": "train", "step": 1300, "loss": 0.14924272894859314}
+{"phase": "train", "step": 1400, "loss": 0.45991265773773193}
+{"phase": "train", "step": 1500, "loss": 0.2596936821937561}
+{"phase": "train", "step": 1600, "loss": 0.19750596582889557}
+{"phase": "train", "step": 1700, "loss": 0.14175096154212952}
+{"phase": "train", "step": 1800, "loss": 0.10414779931306839}
+{"phase": "train", "step": 1900, "loss": 0.13370972871780396}
+{"phase": "train", "step": 2000, "loss": 0.23511244356632233}
+{"phase": "train", "step": 2100, "loss": 0.08533099293708801}
+{"phase": "train", "step": 2200, "loss": 0.09448093175888062}
+{"phase": "train", "step": 2300, "loss": 0.1787445843219757}
+{"phase": "train", "step": 2400, "loss": 0.1962812840938568}
+{"phase": "train", "step": 2500, "loss": 0.08118905127048492}
+{"phase": "train", "step": 2600, "loss": 0.21281909942626953}
+{"phase": "train", "step": 2700, "loss": 0.15854376554489136}
+{"phase": "train", "step": 2800, "loss": 0.13460363447666168}
+{"phase": "train", "step": 2900, "loss": 0.2564345598220825}
+{"phase": "train", "step": 3000, "loss": 0.1145843118429184}
+{"phase": "train", "step": 3100, "loss": 0.07698124647140503}
+{"phase": "train", "step": 3200, "loss": 0.13227635622024536}
+{"phase": "train", "step": 3300, "loss": 0.1517932415008545}
+{"phase": "train", "step": 3400, "loss": 0.061809178441762924}
+{"phase": "train", "step": 3500, "loss": 0.12462504208087921}
+{"phase": "train", "step": 3600, "loss": 0.23811036348342896}
+{"phase": "train", "step": 3700, "loss": 0.20490007102489471}
+{"phase": "train", "step": 3800, "loss": 0.13704784214496613}
+{"phase": "train", "step": 3900, "loss": 0.29461461305618286}
+{"phase": "train", "step": 4000, "loss": 0.11845023185014725}
+{"phase": "train", "step": 4100, "loss": 0.18858370184898376}
+{"phase": "train", "step": 4200, "loss": 0.13318029046058655}
+{"phase": "train", "step": 4300, "loss": 0.10856334865093231}
+{"phase": "train", "step": 4400, "loss": 0.12431564927101135}
+{"phase": "train", "step": 4500, "loss": 0.08192694932222366}
+{"phase": "train", "step": 4600, "loss": 0.32986369729042053}
+{"phase": "train", "step": 4700, "loss": 0.4094982445240021}
+{"phase": "train", "step": 4800, "loss": 0.08161953091621399}
+{"phase": "train", "step": 4900, "loss": 0.3413502275943756}
+{"phase": "train", "step": 5000, "loss": 0.06478645652532578}
+{"phase": "sample_repair", "round": 0, "samples": 32, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 64, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 96, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 128, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 160, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 192, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 224, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 256, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 288, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 320, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 352, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 384, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 416, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 448, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 480, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 512, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 544, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 576, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 608, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 640, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 672, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 704, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 736, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 768, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 800, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 832, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 864, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 896, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 928, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 960, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 992, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1024, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1056, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1088, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1120, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1152, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1184, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1216, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1248, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1280, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1312, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1344, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1376, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1408, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1440, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1472, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1504, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1536, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1568, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1600, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1632, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1664, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1696, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1728, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1760, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1792, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1824, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1856, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1888, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1920, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1952, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 1984, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2016, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2048, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2080, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2112, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2144, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2176, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2208, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2240, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2272, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2304, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2336, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2368, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2400, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2432, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2464, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2496, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2528, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2560, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2592, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2624, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2656, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2688, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2720, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2752, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2784, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2816, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2848, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2880, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2912, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2944, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 2976, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3008, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3040, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3072, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3104, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3136, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3168, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3200, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3232, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3264, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3296, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3328, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3360, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3392, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3424, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3456, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3488, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3520, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3552, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3584, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3616, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3648, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3680, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3712, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3744, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3776, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3808, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3840, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3872, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3904, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3936, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 3968, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 4000, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 4032, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 4064, "best": 304}
+{"phase": "sample_repair", "round": 0, "samples": 4096, "best": 304}
+{"phase": "train", "step": 5100, "loss": 0.14648042619228363}
+{"phase": "train", "step": 5200, "loss": 0.16785049438476562}
+{"phase": "train", "step": 5300, "loss": 0.22786444425582886}
+{"phase": "train", "step": 5400, "loss": 0.13962693512439728}
+{"phase": "train", "step": 5500, "loss": 0.1473107635974884}
+{"phase": "train", "step": 5600, "loss": 0.23807083070278168}
+{"phase": "train", "step": 5700, "loss": 0.27849432826042175}
+{"phase": "train", "step": 5800, "loss": 0.30681130290031433}
+{"phase": "train", "step": 5900, "loss": 0.29875457286834717}
+{"phase": "train", "step": 6000, "loss": 0.1749362349510193}
+{"phase": "train", "step": 6100, "loss": 0.17388057708740234}
+{"phase": "train", "step": 6200, "loss": 0.2744550108909607}
+{"phase": "train", "step": 6300, "loss": 0.226781964302063}
+{"phase": "train", "step": 6400, "loss": 0.22334067523479462}
+{"phase": "train", "step": 6500, "loss": 0.2276093065738678}
+{"phase": "train", "step": 6600, "loss": 0.2721571922302246}
+{"phase": "train", "step": 6700, "loss": 0.184286966919899}
+{"phase": "train", "step": 6800, "loss": 0.20118945837020874}
+{"phase": "train", "step": 6900, "loss": 0.3149693012237549}
+{"phase": "train", "step": 7000, "loss": 0.43949639797210693}
+{"phase": "sample_repair", "round": 1, "samples": 4128, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4160, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4192, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4224, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4256, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4288, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4320, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4352, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4384, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4416, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4448, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4480, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4512, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4544, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4576, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4608, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4640, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4672, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4704, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4736, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4768, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4800, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4832, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4864, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4896, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4928, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4960, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 4992, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5024, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5056, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5088, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5120, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5152, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5184, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5216, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5248, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5280, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5312, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5344, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5376, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5408, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5440, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5472, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5504, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5536, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5568, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5600, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5632, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5664, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5696, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5728, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5760, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5792, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5824, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5856, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5888, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5920, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5952, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 5984, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6016, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6048, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6080, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6112, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6144, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6176, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6208, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6240, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6272, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6304, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6336, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6368, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6400, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6432, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6464, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6496, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6528, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6560, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6592, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6624, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6656, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6688, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6720, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6752, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6784, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6816, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6848, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6880, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6912, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6944, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 6976, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7008, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7040, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7072, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7104, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7136, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7168, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7200, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7232, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7264, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7296, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7328, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7360, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7392, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7424, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7456, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7488, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7520, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7552, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7584, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7616, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7648, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7680, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7712, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7744, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7776, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7808, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7840, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7872, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7904, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7936, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 7968, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8000, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8032, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8064, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8096, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8128, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8160, "best": 304}
+{"phase": "sample_repair", "round": 1, "samples": 8192, "best": 304}
+{"phase": "train", "step": 7100, "loss": 0.19437438249588013}
+{"phase": "train", "step": 7200, "loss": 0.152517169713974}
+{"phase": "train", "step": 7300, "loss": 0.2671375274658203}
+{"phase": "train", "step": 7400, "loss": 0.21369075775146484}
+{"phase": "train", "step": 7500, "loss": 0.20549166202545166}
+{"phase": "train", "step": 7600, "loss": 0.2974887788295746}
+{"phase": "train", "step": 7700, "loss": 0.2051703929901123}
+{"phase": "train", "step": 7800, "loss": 0.3030882477760315}
+{"phase": "train", "step": 7900, "loss": 0.1536022424697876}
+{"phase": "train", "step": 8000, "loss": 0.16391244530677795}
+{"phase": "train", "step": 8100, "loss": 0.13409295678138733}
+{"phase": "train", "step": 8200, "loss": 0.2289099395275116}
+{"phase": "train", "step": 8300, "loss": 0.17187759280204773}
+{"phase": "train", "step": 8400, "loss": 0.24116173386573792}
+{"phase": "train", "step": 8500, "loss": 0.15067437291145325}
+{"phase": "train", "step": 8600, "loss": 0.16540108621120453}
+{"phase": "train", "step": 8700, "loss": 0.2521595358848572}
+{"phase": "train", "step": 8800, "loss": 0.31831812858581543}
+{"phase": "train", "step": 8900, "loss": 0.3495131731033325}
+{"phase": "train", "step": 9000, "loss": 0.398073673248291}
+{"phase": "sample_repair", "round": 2, "samples": 8224, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8256, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8288, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8320, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8352, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8384, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8416, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8448, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8480, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8512, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8544, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8576, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8608, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8640, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8672, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8704, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8736, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8768, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8800, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8832, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8864, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8896, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8928, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8960, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 8992, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9024, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9056, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9088, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9120, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9152, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9184, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9216, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9248, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9280, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9312, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9344, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9376, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9408, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9440, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9472, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9504, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9536, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9568, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9600, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9632, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9664, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9696, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9728, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9760, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9792, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9824, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9856, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9888, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9920, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9952, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 9984, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10016, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10048, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10080, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10112, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10144, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10176, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10208, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10240, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10272, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10304, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10336, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10368, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10400, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10432, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10464, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10496, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10528, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10560, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10592, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10624, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10656, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10688, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10720, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10752, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10784, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10816, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10848, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10880, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10912, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10944, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 10976, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11008, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11040, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11072, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11104, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11136, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11168, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11200, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11232, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11264, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11296, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11328, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11360, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11392, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11424, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11456, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11488, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11520, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11552, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11584, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11616, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11648, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11680, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11712, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11744, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11776, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11808, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11840, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11872, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11904, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11936, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 11968, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12000, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12032, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12064, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12096, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12128, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12160, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12192, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12224, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12256, "best": 304}
+{"phase": "sample_repair", "round": 2, "samples": 12288, "best": 304}
+{"phase": "train", "step": 9100, "loss": 0.22914670407772064}
+{"phase": "train", "step": 9200, "loss": 0.3428749740123749}
+{"phase": "train", "step": 9300, "loss": 0.3474850058555603}
+{"phase": "train", "step": 9400, "loss": 0.14771133661270142}
+{"phase": "train", "step": 9500, "loss": 0.18168294429779053}
+{"phase": "train", "step": 9600, "loss": 0.2130204737186432}
+{"phase": "train", "step": 9700, "loss": 0.1446320116519928}
+{"phase": "train", "step": 9800, "loss": 0.1821577399969101}
+{"phase": "train", "step": 9900, "loss": 0.16518467664718628}
+{"phase": "train", "step": 10000, "loss": 0.26464903354644775}
+{"phase": "train", "step": 10100, "loss": 0.18736757338047028}
+{"phase": "train", "step": 10200, "loss": 0.17869490385055542}
+{"phase": "train", "step": 10300, "loss": 0.21524572372436523}
+{"phase": "train", "step": 10400, "loss": 0.29253706336021423}
+{"phase": "train", "step": 10500, "loss": 0.16554084420204163}
+{"phase": "train", "step": 10600, "loss": 0.14722347259521484}
+{"phase": "train", "step": 10700, "loss": 0.24065802991390228}
+{"phase": "train", "step": 10800, "loss": 0.19056978821754456}
+{"phase": "train", "step": 10900, "loss": 0.4458628296852112}
+{"phase": "train", "step": 11000, "loss": 0.33026790618896484}
+{"report": "/home/wangs18/erdos-86/artifacts/experiments/slurm-21925840/pilot-seed-8601/report.json", "best": 304, "stop": "completed", "smoke_passed": null}
+{
+  "n": 7,
+  "edges": 304,
+  "C4_violations": 0,
+  "common_neighbor_pair_collisions": 0,
+  "square_histogram": {
+    "1": 87,
+    "2": 18,
+    "3": 567
+  },
+  "empty_squares": 0,
+  "opposite_two_edge_squares": 0,
+  "degree_histogram": {
+    "4": 32,
+    "5": 96
+  }
+}
