@@ -2,6 +2,8 @@
 
 用户已授权修改训练代码并再次提交。本轮保留 GraphGPS 的局部约束图消息传递与全局边变量注意力，重点修正训练目标、评测与局部搜索。提交时使用固定提交的独立 worktree；六次运行共用一张 A100，依次执行。
 
+**已提交并开始运行：Slurm 21929229，g-10-01，1 张 A100 80GB PCIe。** 固定代码为 `51bfea0cccf024553a28dd43662082161bb3e6c8`，首个运行是 `reference80 / seed 8611`，已观察到训练第 600–1000 步。此为启动核对，不表示六次训练完成。回执及实际结果/日志路径见 [submission.json](../artifacts/experiments/diagnostics-submissions/51bfea0cccf0/submission.json) 与 [observed-startup.json](../artifacts/experiments/diagnostics-submissions/51bfea0cccf0/observed-startup.json)。
+
 ## 可检验的问题
 
 保持高质量参考图的训练权重，是否能减少原试验后续生成质量下降，并提高接近或达到 304 的频率？这是有界的学习方法实验，不预设 305 存在或可以找到。

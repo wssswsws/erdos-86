@@ -1,0 +1,28 @@
+{
+  "observed_at": "2026-09-13T02:11:41.177144+00:00",
+  "source": "Read from Omnissa Horizon Client terminal via computer use; receipt fields transcribed from script output.",
+  "job_id": "21929229",
+  "slurm_state": "RUNNING",
+  "node": "g-10-01",
+  "partition": "gpuq",
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "visible_gpu_count": 1,
+  "torch": "2.10.0+cu126",
+  "python": "3.13.13",
+  "bf16_supported": true,
+  "suite_state": "running",
+  "current_arm": "reference80",
+  "current_seed": 8611,
+  "observed_training_steps": [
+    600,
+    700,
+    800,
+    900,
+    1000
+  ],
+  "mean_loss_100_logging_observed": true,
+  "test_stage": "pytest reached 100%, returned successfully, suite started afterward",
+  "remote_stdout": "/home/wangs18/erdos-86/.runs/diagnostics-51bfea0cccf0/logs/erdos86-diag-51bfea0c-21929229.out",
+  "remote_stderr": "/home/wangs18/erdos-86/.runs/diagnostics-51bfea0cccf0/logs/erdos86-diag-51bfea0c-21929229.err",
+  "scope": "Startup observation only; does not claim suite completion or a new mathematical result."
+}

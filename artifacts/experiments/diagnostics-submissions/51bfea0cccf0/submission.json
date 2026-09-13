@@ -1,0 +1,12 @@
+{
+  "job_id": "21929229",
+  "submitted_at": "2026-09-13T02:09:29.077630+00:00",
+  "code_revision": "51bfea0cccf024553a28dd43662082161bb3e6c8",
+  "snapshot_directory": "/home/wangs18/erdos-86/.runs/diagnostics-51bfea0cccf0",
+  "status": "submitted",
+  "gpu_count": 1,
+  "slurm_hours": 4,
+  "runs": 6,
+  "automatic_requeue": false,
+  "output_directory": "/home/wangs18/erdos-86/.runs/diagnostics-51bfea0cccf0/artifacts/experiments/slurm-21929229/diagnostics"
+}
