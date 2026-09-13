@@ -1,0 +1,19 @@
+{
+  "model": {
+    "n": 7,
+    "width": 32,
+    "layers": 2,
+    "heads": 4
+  },
+  "seed": 8601,
+  "batch_size": 4,
+  "initial_population": 8,
+  "elite_size": 16,
+  "pretrain_steps": 8,
+  "rounds": 1,
+  "samples_per_round": 2,
+  "sample_batch_size": 2,
+  "round_train_steps": 4,
+  "repair_kicks": 2,
+  "max_wall_seconds": 180
+}

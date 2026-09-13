@@ -1,8 +1,12 @@
 # erdos-86
 
+**实验室 A100 / Slurm 运行入口：** [从 GitHub 获取代码、准备环境、提交校准和试验](docs/slurm-guide.md)。已配置 `gpuq` 分区与单卡/四卡作业脚本；四卡方案是四个独立随机种子。先运行校准，真实 GPU 性能尚未验证。
+
+路线 4 的 [GraphGPS 架构与 CPU smoke 证据](docs/graphgps-route4.md) 和 [Modal 备选操作指南](docs/modal-guide.md) 也已提供。
+
 Erdős #86 的研究工作区，使用 Iteris 组织研究材料、任务和验证记录，使用现有 Lean 项目保存将来的形式化工作。
 
-当前阶段：**已记录现有研究并复核已知证书，尚未启动研究代理或机器学习训练；没有新数学结果。**
+当前阶段：**路线 4 的 GraphGPS 风格生成器已实现，CPU smoke 与 15 项测试通过；已提供实验室 Slurm 提交脚本，尚未启动 GPU 试验，没有新的数学结果。**
 
 ## 现有研究入口
 

@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-09-12T23:47:16.680633Z",
+  "facts_added": [
+    "fact:erdos-86:graphgps-smoke-implementation",
+    "fact:erdos-86:graphgps-gpu-budget"
+  ],
+  "facts_total": 18,
+  "implementation_task": "done",
+  "gpu_task": "paused",
+  "research_agents_started": false,
+  "gpu_training_started": false
+}

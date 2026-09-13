@@ -1,0 +1,14 @@
+{
+  "cpu_tests_passed": 15,
+  "bash_syntax_checks_passed": 4,
+  "login_node_guards_passed": 4,
+  "four_worker_device_seed_output_isolation": "passed with fake Python; no GPU execution",
+  "existing_output_overwrite_guard": "passed",
+  "slurm_submission_performed": false,
+  "cuda_validation_performed": false,
+  "cluster_defaults": {
+    "partition": "gpuq",
+    "account": "hpcusers",
+    "gres": "gpu:a100"
+  }
+}

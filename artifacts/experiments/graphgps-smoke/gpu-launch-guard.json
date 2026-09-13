@@ -1,0 +1,5 @@
+{
+  "exit_code": 2,
+  "cuda_unavailable_guard": true,
+  "gpu_job_started": false
+}

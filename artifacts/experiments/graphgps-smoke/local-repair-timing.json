@@ -1,0 +1,8 @@
+{
+  "device": "cpu",
+  "repair_kicks": 16,
+  "calls": 30,
+  "seconds": 0.14678912502131425,
+  "mean_seconds": 0.004892970834043808,
+  "scope": "Local machine, three fixed input graphs; not GPU timing or a population-wide benchmark."
+}

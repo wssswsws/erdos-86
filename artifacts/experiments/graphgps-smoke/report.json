@@ -1,0 +1,177 @@
+{
+  "schema": "erdos86_gps.run.v1",
+  "mode": "smoke",
+  "config": {
+    "model": {
+      "n": 7,
+      "width": 32,
+      "layers": 2,
+      "heads": 4
+    },
+    "seed": 8601,
+    "batch_size": 4,
+    "initial_population": 8,
+    "elite_size": 16,
+    "pretrain_steps": 8,
+    "rounds": 1,
+    "samples_per_round": 2,
+    "sample_batch_size": 2,
+    "round_train_steps": 4,
+    "repair_kicks": 2,
+    "max_wall_seconds": 180
+  },
+  "device": "cpu",
+  "provenance": {
+    "python": "3.13.7",
+    "torch": "2.10.0",
+    "platform": "macOS-26.3-arm64-arm-64bit-Mach-O",
+    "git_head": "0966bd453cf4feaa3050973a652f691b09da9e87",
+    "source_sha256": {
+      "erdos86_gps/__init__.py": "20508f09dd8ad9cbb8ef7fc10e09116e4a4d54a2b07c57593e0c80b5f2667c0a",
+      "erdos86_gps/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+      "erdos86_gps/cli.py": "9bd263002086969a44aa9132ba9b4378d099a4c3209ccf2e07a245e65c29a622",
+      "erdos86_gps/cube.py": "13a8e4f987736abf8561c07563cd3edff15d3384faa3c017844b2b86709e7583",
+      "erdos86_gps/engine.py": "5256a1cfcba3f793c510ebbd182d7d2a79441a52865f73c6632c74e96eb52aa7",
+      "erdos86_gps/model.py": "bd9c9d8455901078dfe968b26481f6d65a5424ae27ff586c32d12db6f8f1d339",
+      "erdos86_gps/search.py": "0a34e731ff12a3b9ff7652d76727366636b4375d8b50ebce314e0edd83a8e241",
+      "erdos86_gps/verify.py": "ede8a20a9418077524540a654bb7bd87e4e387f513fb4603f2e55497db6977ed"
+    },
+    "cuda_version": null
+  },
+  "seed_source": {
+    "path": "references/baselines/86-selected_edges_best.json",
+    "sha256": "8e3c8d23643d2d34c493acd95013faea6f98c0a0f9db20ae77eee1a698d0980c"
+  },
+  "parameters": 43073,
+  "initial_best": 304,
+  "population_source": null,
+  "best_source": "initial_population",
+  "initial_population": 5,
+  "data_scope": "Training population; exact-label dedup only. No audited orbit split and no held-out generalization claim.",
+  "resume_semantics": "Restores trainer and population; this invocation starts a new bounded set of rounds.",
+  "training_seconds": 0.2804444590001367,
+  "generation_seconds": 1.2713696249993518,
+  "repair_seconds": 0.0032576250087004155,
+  "baseline_seconds": 0.0030727499979548156,
+  "sampled_graphs": 2,
+  "losses": [
+    {
+      "step": 1,
+      "loss": 0.5259250998497009,
+      "grad_norm": 3.8153796195983887,
+      "trainable_fraction": 1.0
+    },
+    {
+      "step": 2,
+      "loss": 0.46825703978538513,
+      "grad_norm": 1.4563761949539185,
+      "trainable_fraction": 0.75
+    },
+    {
+      "step": 3,
+      "loss": 0.544898509979248,
+      "grad_norm": 2.1040232181549072,
+      "trainable_fraction": 1.0
+    },
+    {
+      "step": 4,
+      "loss": 0.6205945611000061,
+      "grad_norm": 1.9344086647033691,
+      "trainable_fraction": 1.0
+    },
+    {
+      "step": 5,
+      "loss": 0.39846089482307434,
+      "grad_norm": 2.845564842224121,
+      "trainable_fraction": 0.5
+    },
+    {
+      "step": 6,
+      "loss": 0.6016665101051331,
+      "grad_norm": 1.653006911277771,
+      "trainable_fraction": 0.75
+    },
+    {
+      "step": 7,
+      "loss": 0.20173363387584686,
+      "grad_norm": 1.4427523612976074,
+      "trainable_fraction": 0.75
+    },
+    {
+      "step": 8,
+      "loss": 0.5161214470863342,
+      "grad_norm": 1.301753282546997,
+      "trainable_fraction": 0.75
+    },
+    {
+      "step": 9,
+      "loss": 0.5609503984451294,
+      "grad_norm": 1.0194647312164307,
+      "trainable_fraction": 1.0
+    },
+    {
+      "step": 10,
+      "loss": 0.9892100095748901,
+      "grad_norm": 3.0295822620391846,
+      "trainable_fraction": 1.0
+    },
+    {
+      "step": 11,
+      "loss": 0.7332035303115845,
+      "grad_norm": 2.9237008094787598,
+      "trainable_fraction": 1.0
+    },
+    {
+      "step": 12,
+      "loss": 0.5946093201637268,
+      "grad_norm": 1.6330254077911377,
+      "trainable_fraction": 1.0
+    }
+  ],
+  "rounds": [
+    {
+      "round": 0,
+      "raw_edge_counts": [
+        236,
+        233
+      ],
+      "repaired_edge_counts": [
+        262,
+        263
+      ],
+      "paired_baseline_edge_counts": [
+        264,
+        263
+      ],
+      "elite_exact_label_unique": 7
+    }
+  ],
+  "stopping_reason": "completed",
+  "comparison_scope": "Paired repair counts only; NOT equal total compute.",
+  "local_branch_gradient_seen": true,
+  "global_branch_gradient_seen": true,
+  "training_steps_this_run": 12,
+  "training_steps_total": 12,
+  "best_validation": {
+    "n": 7,
+    "edges": 304,
+    "C4_violations": 0,
+    "common_neighbor_pair_collisions": 0,
+    "square_histogram": {
+      "1": 36,
+      "2": 120,
+      "3": 516
+    },
+    "empty_squares": 0,
+    "opposite_two_edge_squares": 0,
+    "degree_histogram": {
+      "4": 32,
+      "5": 96
+    }
+  },
+  "best_is_original_seed": true,
+  "wall_seconds": 2.194382041983772,
+  "peak_cuda_allocated_bytes": null,
+  "checkpoint_reload_equal": true,
+  "smoke_passed": true
+}

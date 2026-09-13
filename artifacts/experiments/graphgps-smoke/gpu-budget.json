@@ -1,0 +1,34 @@
+{
+  "training_steps": 11000,
+  "generated_graphs": 12288,
+  "sample_batches": 384,
+  "full_graph_forward_calls": 172032,
+  "configured_wall_cap_hours": 4.0,
+  "approx_forward_gflops_per_graph_prefix": 1.702887424,
+  "approx_total_matmul_pflops": 11.172685258162176,
+  "flops_scope": "Matmul estimate only; assumes full local+global architecture, backward about 2x forward; excludes gather, norms, masking and Python overhead.",
+  "basis": "Planning assumptions, NOT measured GPU performance. No guarantee for any GPU model.",
+  "scenarios": [
+    {
+      "label": "optimistic_assumption",
+      "train_step_ms": 15,
+      "sample_step_batch_ms": 5,
+      "repair_graph_ms": 20,
+      "active_gpu_hours": 0.2847666666666666,
+      "allocated_hours_with_sequential_repair_and_paired_baseline": 0.42129999999999995
+    },
+    {
+      "label": "conservative_assumption",
+      "train_step_ms": 80,
+      "sample_step_batch_ms": 25,
+      "repair_graph_ms": 200,
+      "active_gpu_hours": 1.4391111111111112,
+      "allocated_hours_with_sequential_repair_and_paired_baseline": 2.8044444444444445
+    }
+  ],
+  "suggested_initial_reservation_hours": [
+    2,
+    4
+  ],
+  "note": "Calibrate external GPU first; cap may stop an unfinished run. Sampling has 448 full forwards and no KV cache."
+}

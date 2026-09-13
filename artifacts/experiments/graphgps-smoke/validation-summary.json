@@ -1,0 +1,10 @@
+{
+  "smoke_passed": true,
+  "tests_passed": 15,
+  "test_failures": 0,
+  "source_hashes_match": true,
+  "independent_verifier": "cube-face enumeration plus common-neighbor pairs",
+  "cuda_tested": false,
+  "gpu_hours_used": 0,
+  "paused_for_external_gpu": true
+}

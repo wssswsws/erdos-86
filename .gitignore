@@ -22,5 +22,13 @@ __pycache__/
 # Local-only logs
 .iteris/logs/
 .iteris/codex_home/
+.iteris/monitor/
 # Report-local build outputs
 reports/*/build/
+# Reproducible model weights are local artifacts; reports/configs remain tracked.
+artifacts/experiments/**/*.pt
+artifacts/experiments/**/*.pt.tmp
+# Slurm runtime logs and optional local result archives.
+/logs/
+/slurm-*.out
+/transfer/

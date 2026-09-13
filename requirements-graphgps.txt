@@ -1,0 +1,4 @@
+# Install the CUDA wheel for the external host from the official PyTorch selector.
+# CPU smoke in this workspace was developed against PyTorch 2.10.0.
+torch==2.10.0
+pytest>=8,<10
