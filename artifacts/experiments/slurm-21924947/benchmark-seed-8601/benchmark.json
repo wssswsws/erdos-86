@@ -1,0 +1,47 @@
+{
+  "device": "cuda:0",
+  "hardware": "NVIDIA A100 80GB PCIe",
+  "provenance": {
+    "python": "3.13.13",
+    "torch": "2.10.0+cu126",
+    "platform": "Linux-5.14.0-162.6.1.el9_1.x86_64-x86_64-with-glibc2.34",
+    "git_head": "252466d29e6c67ace2640c1ccfd45f64fa22657a",
+    "source_sha256": {
+      "erdos86_gps/__init__.py": "20508f09dd8ad9cbb8ef7fc10e09116e4a4d54a2b07c57593e0c80b5f2667c0a",
+      "erdos86_gps/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+      "erdos86_gps/cli.py": "9bd263002086969a44aa9132ba9b4378d099a4c3209ccf2e07a245e65c29a622",
+      "erdos86_gps/cube.py": "13a8e4f987736abf8561c07563cd3edff15d3384faa3c017844b2b86709e7583",
+      "erdos86_gps/engine.py": "5256a1cfcba3f793c510ebbd182d7d2a79441a52865f73c6632c74e96eb52aa7",
+      "erdos86_gps/model.py": "bd9c9d8455901078dfe968b26481f6d65a5424ae27ff586c32d12db6f8f1d339",
+      "erdos86_gps/search.py": "0a34e731ff12a3b9ff7652d76727366636b4375d8b50ebce314e0edd83a8e241",
+      "erdos86_gps/verify.py": "ede8a20a9418077524540a654bb7bd87e4e387f513fb4603f2e55497db6977ed"
+    },
+    "cuda_version": "12.6"
+  },
+  "config": {
+    "model": {
+      "n": 7,
+      "width": 128,
+      "layers": 4,
+      "heads": 8
+    },
+    "seed": 8601,
+    "batch_size": 32,
+    "initial_population": 128,
+    "elite_size": 512,
+    "pretrain_steps": 5000,
+    "rounds": 3,
+    "samples_per_round": 4096,
+    "sample_batch_size": 32,
+    "round_train_steps": 2000,
+    "repair_kicks": 16,
+    "max_wall_seconds": 14400
+  },
+  "steps": 20,
+  "parameters": 1324033,
+  "train_step_seconds": 0.03288051215931773,
+  "forward_seconds": 0.003130941139534116,
+  "sample_batch_seconds": 1.5333929536864161,
+  "repair_graph_seconds": 0.007654607994481921,
+  "peak_cuda_allocated_bytes": 543417856
+}
