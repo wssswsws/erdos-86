@@ -1,11 +1,11 @@
-# Q7 训练语料审核
+# Q7 training-corpus audit
 
-完成于 2026-09-12。完整记录见 [audit.json](../../references/corpora/q7-304-orbits/audit.json) 和[语料说明](../../references/corpora/q7-304-orbits/README.md)。
+Completed September 12, 2026. See [audit.json](../../references/corpora/q7-304-orbits/audit.json) and the [corpus README](../../references/corpora/q7-304-orbits/README.md).
 
-- 19,866 个构造均独立验证为 304 边、无四圈；无精确标号重复。
-- 19,866 个轨道归属映射证据均独立检查吻合。
-- 已完整复跑上游最小表示检查：180 个代表各检查全部 645,120 个立方体对称；180 个规范表示互不相同。
-- 提取每轨道一个代表，共 180 个，包含 6 个 odd-square 和 174 个其他代表。
-- 为构造搜索使用全部代表训练，没有留出测试集；不声称未见轨道泛化或对所有 304 边图分类完备。
+- All 19,866 constructions independently verified as C4-free with 304 edges; no duplicate exact labelings.
+- All 19,866 orbit-membership mapping witnesses independently checked.
+- Upstream canonicalization completely rerun over all 645,120 cube symmetries for each representative; 180 distinct canonical forms.
+- One representative extracted per orbit: six odd-square and 174 other representatives.
+- The first pilot used all representatives, with no holdout. This did not establish unseen-orbit generalization or completeness over all 304-edge graphs.
 
-与 Iteris 历史任务中“设计 split”的关系：本次明确采用全量轨道均衡初始训练而不划分评测集，以服务用户要求的首次构造搜索试验。记录为已审核的计算证据，不标为 Lean 形式化证明或 Iteris 代理面板认证。
+The original task mentioned designing a split. The first construction-search pilot deliberately used all orbit-balanced references; the later diagnostic experiment introduced a 144/36 split. This record describes reviewed computational evidence, not Lean formalization or Iteris agent-panel certification.

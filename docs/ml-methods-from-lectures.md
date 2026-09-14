@@ -1,64 +1,61 @@
-# 讲义中的机器学习图论方法
+# Machine-learning methods for graph construction in the lectures
 
-查阅材料：用户提供的《Lectures on AI for Mathematics.pdf》，共 157 页。
-下面的页码是 PDF 页码；所列页的正文印刷页码与 PDF 页码一致。
-相关页的文本与原 PDF 哈希保存在 [lecture-selected-pages.txt](../references/user/source-pack/lecture-selected-pages.txt)。
+The source is the supplied 157-page *Lectures on AI for Mathematics*. PDF page numbers and printed page numbers agree on the relevant pages. Selected page text and the original PDF hash are preserved in [lecture-selected-pages.txt](../references/user/source-pack/lecture-selected-pages.txt).
 
-## 定位结果
-
-| 位置 | 方法 | 原始工作 |
+| Location | Method | Original work |
 | --- | --- | --- |
-| 第 5.2 节，约 103–110 页；104–105 页给出核心算法 | 深度交叉熵法（Deep Cross-Entropy Method） | Adam Zsolt Wagner，[Constructions in combinatorics via neural networks](https://arxiv.org/abs/2104.14516)，2021 |
-| 第 5.3 节，110–116 页；114–115 页讨论图论结果 | PatternBoost | François Charton、Jordan S. Ellenberg、Adam Zsolt Wagner、Geordie Williamson，[PatternBoost](https://arxiv.org/abs/2411.00566)，2024 |
+| Section 5.2, approximately pp. 103–110; core algorithm on pp. 104–105 | Deep cross-entropy method | Adam Zsolt Wagner, [Constructions in combinatorics via neural networks](https://arxiv.org/abs/2104.14516), 2021 |
+| Section 5.3, pp. 110–116; graph results on pp. 114–115 | PatternBoost | François Charton, Jordan S. Ellenberg, Adam Zsolt Wagner, and Geordie Williamson, [PatternBoost](https://arxiv.org/abs/2411.00566), 2024 |
 
-讲义确实介绍了不止一种方法。与我们现在的有限图构造研究联系最直接的是 PatternBoost。
+## Deep cross-entropy: imitate successful choices
 
-## 深度交叉熵法：从好图中学习怎样作选择
+Encode a graph as a sequence of zeros and ones, one decision per possible edge. A neural network supplies probabilities for successive choices. Generate many graphs, score them, keep an elite fraction, and train the network to imitate those choices. Repeating this may improve the probability of generating a good graph.
 
-先把一张图写成一串 0/1：每一位表示一条可能的边是否保留。
-神经网络在每一步给出选 0 或 1 的概率，生成许多图。给它们打分，保留成绩最好的那一部分，再训练网络模仿这些图的选择过程。重复后，生成好图的概率可能提高。
+For example, to disprove a proposed inequality $A(G)\ge c$, use score $-A(G)$. A score above $-c$ identifies a candidate counterexample that still requires rigorous verification. Wagner applies this approach to matching numbers, adjacency and distance spectra, and matrix permanents. Not every case was the first counterexample to its conjecture.
 
-例如，想反驳“所有满足条件的图都有 $A(G)\ge c$”，就把分数设为 $-A(G)$；达到大于 $-c$ 的分数后，再严格验证这张图。
-Wagner 的论文用此方法研究匹配数、邻接/距离谱及矩阵 permanent 等构造问题；并不是所有案例都构成首次反驳。
+The 19-vertex tree in Section 2.2 has two centers, each with eight leaves, connected through one additional intermediate vertex. Its matching number is 2 and its adjacency spectral radius is $\sqrt{10}$, so
 
-一个便于理解的已知例子是论文第 2.2 节的 19 点树：两个中心各接 8 个叶子，两个中心之间再通过一个额外顶点连接。它的匹配数为 2，最大邻接特征值为 $\sqrt{10}$，所以
-$\sqrt{10}+2<\sqrt{18}+1$。
-本次对照了原论文第 7 页图 4。讲义将两中心说成由“一条中心边”直接相连的描述不够准确；该图中间还有一个顶点。原论文也说明，相应猜想此前已由 Stevanović 反驳，这里的贡献包括更小的显式反例。
+$$\sqrt{10}+2<\sqrt{18}+1.$$
 
-## PatternBoost：神经网络与局部搜索交替
+Figure 4 on page 7 of the original paper confirms the intermediate vertex. The lecture's description of a single edge joining the centers is imprecise. The paper also credits Stevanović with an earlier disproof; this example supplies a smaller explicit counterexample.
 
-可以把它理解为以下循环：
+The original deep cross-entropy implementation uses a fully connected neural network, not a GNN. The optimization method itself does not require that particular architecture.
+
+## PatternBoost: alternate learning and local search
 
 ```text
-已有候选图 → 局部搜索改善 → 保留较好的图
-     ↑                         ↓
-新候选图 ← 从模型采样 ← 训练小型 Transformer
+candidate graphs -> local improvement -> retain good graphs
+       ^                                      |
+       |                                      v
+new candidates <- sample the model <- train a small Transformer
 ```
 
-局部搜索负责具体加边、删边和修补；模型从好图的编码中学习统计规律，提供下一轮起点。
-“局部最优”只意味着当前允许的修改没有改善，不等于全局最优；模型的作用是尝试提供不同的起点。
+Local search adds, deletes, and repairs edges. The model learns patterns in encodings of good graphs and proposes new starting points. A local optimum only means that the permitted moves no longer improve it; it need not be globally optimal.
 
-讲义第 114 页的无四圈例子与原论文第 3.1 节一致：在一般的 33 点图上，5000 万次纯局部搜索最高达到 89 边；最初的模型实验达到 91，较大模型配合改进编码最终在约 1.165 亿次局部搜索后找到已知最优的 96 边。
-这些数字是作者报告的实验结果，本项目没有复跑训练。
+The lecture's C4-free example on page 114 matches Section 3.1 of the paper: on general 33-vertex graphs, 50 million pure local-search calls reached 89 edges; initial model experiments reached 91; a larger model and improved encoding eventually reached the known optimum of 96 after roughly 116.5 million local-search calls. These are the authors' reported results, not experiments reproduced here.
 
-另一个例子是原论文第 3.3 节：在 $Q_6$ 中寻找保持全部顶点、直径仍为 6 的子图，得到 81 边构造，低于所反驳猜想的 82。这里要求保直径、尽量少边；#86 要求无四圈、尽量多边，两者不同。
-以上结果说明方法可以用于发现，但不能推断 #86 的成功率。
+Section 3.3 gives a different hypercube task: retain all vertices of Q6 and diameter 6 while minimizing edges. Its 81-edge construction beat a conjectured minimum of 82. That diameter problem differs from #86, which maximizes edges subject to excluding C4s.
 
-## 怎样用于我们的 Q7 项目
+The original PatternBoost implementation uses a sequence Transformer, not a GNN. Neither its examples nor Wagner's establish a success probability for the present Q7 target.
 
-以下是研究方案，尚未实施或验证效果。
+## Adaptation to this project
 
-- 固定 $Q_7$ 的 448 条可能边，只生成这 448 个选择。无需生成所有 $\binom{128}{2}=8128$ 个顶点对的邻接信息。
-- 用已知合法构造及局部搜索结果建立训练集；保存不同轨道和不同结构，避免大量重复标号淹没样本。
-- 模型生成候选后，由程序消除四圈、做多边交换或局部 ILP 修补，再评估实际保留边数。
-- 搜索必须允许某些方形保留 0 条或 2 条边；只在 odd-square 类中变化无法超过 304。
-- 与纯局部搜索使用同样的计算预算比较，记录最好边数、达到目标所需评价次数、有效候选率、去重后的构造数及训练时间。
-- 新候选须通过固定的独立验证器；“模型生成了 305 个 1”不等于得到了无四圈的 305 边图。
+Our implementation is a [GraphGPS-style variant](graphgps-route4.md): a local constraint-graph GNN plus global attention between edge variables, followed by sequential sampling. It is independently written, not an installation or reproduction of either original machine-learning codebase.
 
-Iteris 已经可以记录输入数据、训练/搜索参数、代码版本、失败路径和验证结果。PatternBoost 是未来可以接入的搜索方法；现有 Iteris 安装并不自动包含它。
+- Represent only the 448 cube edges, rather than all $\binom{128}{2}=8128$ vertex pairs.
+- Train on audited legal constructions with symmetry-aware sampling. Augmentation changes labels; it does not create new structural orbits.
+- Preserve legality during generation, then improve candidates with bounded local search.
+- Allow empty and two-edge square faces. Remaining in the odd-square class cannot exceed 304.
+- Compare against classical search with a declared total-cost budget and fixed metrics: edge counts, target-hit rates, verified candidates, orbit diversity, and runtime.
+- Independently check every accepted candidate. A bit string containing 305 ones is insufficient unless its selected edges are C4-free.
 
-## 进一步阅读
+The CPU implementation, A100 calibration, corpus pilot, and six-run diagnostic suite are complete. The [latest result](graphgps-diagnostic-suite-results.md) was a verified repaired model sample with 294 edges; no model sample reached 300. This validates the pipeline but has not established competitive search performance. Further training is paused.
 
-- [Wagner 原论文](https://arxiv.org/abs/2104.14516)与[官方代码](https://github.com/zawagner22/cross-entropy-for-combinatorics)。
-- [PatternBoost 原论文](https://arxiv.org/html/2411.00566)与[官方代码](https://github.com/zawagner22/transformers_math_experiments)。
-- 本项目已保存两篇论文，尚未安装或运行这两个机器学习项目。
+Iteris records source data, parameters, code versions, unsuccessful paths, and verification results. It does not supply PatternBoost automatically.
+
+## Original code and papers
+
+- [Wagner's paper](https://arxiv.org/abs/2104.14516) and [official code](https://github.com/zawagner22/cross-entropy-for-combinatorics).
+- [PatternBoost paper](https://arxiv.org/html/2411.00566) and [official code](https://github.com/zawagner22/transformers_math_experiments).
+
+Both papers were saved during intake. Their original training projects have not been installed or rerun here.

@@ -1,25 +1,49 @@
-# erdos-86 — 研究约定
+# Research conventions
 
-- 题目：`sources/erdos-86.tex`。
-- 目标文档：`results/erdos-86/answer.md`。
-- 用户是掌握基本图论语言的本科二年级数学学生。面向用户的解释使用简体中文，每轮说明检验的命题、得到的证据和结论的适用范围。
-- 当前已完成用户要求的现有研究记录与讲义方法定位。长时间搜索或模型训练应先明确具体任务与资源预算。
-- 首先阅读 `docs/existing-research.md` 和 `docs/ml-methods-from-lectures.md`，并检索已有 `memory/facts/`；记录每项结果的来源与证据范围。
-- 已知基准为 Q7 的 304 边构造与 Q8 的 682 边构造；它们不应被描述为本项目的新发现。
-- odd-square 类中的最优值已知。若寻找 305 / 683 边构造，搜索必须允许某些方形保留 0 条或 2 条边。
-- `references/baselines/86-verify.py` 是研究前准备的独立验证器，不是原作者搜索程序。它使用整数和 Python 标准库，并同时检查公共邻居与所有方形。运行时不要使用 `python -O`，因为它会关闭断言。
-- 固定验证器作为验收基准；如需修改，保留旧版并说明原因，不能为了让候选通过而放宽数学条件。
-- 超时、局部最优、启发式搜索失败不能作为不存在性证明。受限类的排除必须明确保留全部限制。
-- 一般的渐近原题、固定维数最优值、受限类最优值及单个候选构造是不同层次的目标。
-- 初始化自动生成的 accepted 状态仅是题目结构预检，不代表任何新数学命题已获证明。
-- 保留现有 Lean 工程；目前其中只有模板内容，没有 #86 的形式化证明。
-- `scripts/verify_wrona_certificates.py` 已独立核验 Q9–Q15 全部七份当前证书；结果在 `artifacts/experiments/literature-intake-20260912/`。旧的外部报告中“尚未复跑这些证书”已由本次记录更新。
-- 新增 `reviewed` 事实表示已做来源审核，正文明确指出哪些经过直接整数验证、哪些仅是文献结论或研究建议。没有运行 Iteris 的代理审核面板，不得把这些状态写成已获人工或形式化认证。
+## Scope and evidence
 
-## 路线 4 当前状态（2026-09-12）
+- Mathematical source: `sources/erdos-86.tex`; intended final research artifact: `results/erdos-86/answer.md`.
+- Write maintained repository documentation in English. Explain mathematical statements using basic undergraduate graph theory, and state what was checked, what the evidence supports, and what remains open.
+- Read `docs/existing-research.md`, `docs/ml-methods-from-lectures.md`, and relevant `memory/facts/` records before starting a new line of work. Preserve source versions and evidence boundaries.
+- Known baseline constructions have 304 edges in Q7 and 682 in Q8. They are not discoveries of this project.
+- The project-reviewed Q7 interval is now 304–305; see `docs/q7-upper-bound-305.md`. A 305-edge graph must have degrees 3–5 and at most two degree-3 vertices on each bipartition side. Historical priority and external review remain separate questions.
+- The odd-square subclass, in which every square retains one or three edges, cannot improve these Q7/Q8 baselines. Searches for 305 or 683 must permit squares with zero or two edges.
+- Distinguish the asymptotic problem, unrestricted fixed-dimensional optima, restricted-class optima, and individual candidate constructions.
+- Timeouts, local optima, and unsuccessful heuristic searches are not nonexistence proofs. Exact exclusions must state their complete parameter and symmetry coverage.
+- Retain the Lean scaffold. It currently contains no formal proof of Problem #86.
 
-首次 180 轨道语料试验 21925840 已完成：单 A100 用时 19:39，原始生成最高 286、修复最高 290，304 来自初始训练池，未找到 305。完整结果在 docs/corpus-pilot-21925840-results.md。
+## Verification
 
-用户现已授权修改代码并再次提交。参考池80%权重与legacy_topk均匀回填对照已实现；144轨道训练、36轨道固定评测，配对种子8611/8612/8613，每次19000步。新增阶段检查点、完整原始/修复/基线边表，搜索允许修复后的暂时退步。21项测试与两组CPU smoke通过。计划在 docs/graphgps-pilot-diagnostic-plan.md。
+`references/baselines/86-verify.py` is an independent standard-library verifier, not an upstream search program. It checks all squares and common-neighbor pairs. Do not use `python -O`.
 
-六次运行顺序使用一张A100，每次程序上限30分钟，套件软限3.5小时、Slurm硬限4小时，错误即停止且不自动重试。提交脚本将固定提交置于独立worktree，避免后续主仓库修改影响运行。本轮代码与评测准备任务已done；GPU套件任务running，真实作业21929229已在g-10-01启动，A100 80GB单卡，reference80/seed8611已观察至训练1000步。固定代码51bfea0cccf024553a28dd43662082161bb3e6c8，实际worktree与日志目录见 artifacts/experiments/diagnostics-submissions/51bfea0cccf0/。六次训练尚未完成，不重复提交。其他会话管理的任务不变。
+Keep the fixed verifier as an acceptance reference. If it needs modification, preserve the previous version and explain why; never weaken the mathematical conditions to accept a candidate. `erdos86_gps/verify.py` supplies an additional independent dual check for new candidates. `scripts/verify_wrona_certificates.py` checked the seven imported Q9–Q15 certificates; outputs are in `artifacts/experiments/literature-intake-20260912/`.
+
+An initialization record marked `accepted` refers to source-structure validation. A fact marked `reviewed` has the specific source or computational checks stated in its body. Neither label establishes external peer review, Lean certification, or approval by an Iteris review panel.
+
+## Search and training
+
+The four original directions are in `docs/toward-305.md`. Elementary necessary conditions, fixed-seed repair barriers, and slice reductions must retain their assumptions. In particular, a constraint on one seed or an incomplete parent catalogue does not establish a general exclusion.
+
+The GraphGPS implementation hides every future edge label before constructing GNN inputs, square features, or global attention. It forbids only actions that complete a C4; it does not force odd-square structure. Do not train on full target-graph labels as visible input.
+
+The corpus contains 180 verified representatives of the published catalogue's symmetry orbits. Augmentation changes labels, not orbits. The first pilot used all 180 for training. The diagnostic suite used 144 training and 36 held-out orbits, with all generated graphs having at least 304 edges excluded from feedback. This holdout was new to the diagnostic runs, not to the project as a whole.
+
+Checkpoint restoration recovers model, optimizer, random state, and population, but a new invocation restarts the configured round budget. It does not resume an interrupted sampling position exactly. Use a fresh output directory and a separately specified continuation budget.
+
+## Latest route-4 result
+
+Slurm 21925840 completed in 19 min 39 sec on one A100. Its best raw sample had 286 edges and its best repaired sample had 290; the overall 304-edge best came from the reference population.
+
+Slurm 21929229 completed with exit code `0:0` in 2 hr 4 min 42 sec on one A100. All six runs completed 19,000 steps, totaling 114,000 steps. The reference80 maxima were 293, 292, and 294; the comparison maxima were 291, 290, and 291. Final fixed repaired means averaged 281.375 versus 280.2083. No model sample reached 300.
+
+The 294-edge graph occurred before the first feedback update, so its maximum cannot be credited to the 80% reference-weight policy. It was transferred as an exact bit encoding and independently checked locally. See `docs/graphgps-diagnostic-suite-results.md` and `artifacts/experiments/slurm-21929229/observed-review/`.
+
+The diagnostic task remains in `review`: execution and the final-summary review are complete; full candidate streams and checkpoints still require transfer and batch audit. Classical baselines already reach 304, so any further learning claim requires a controlled comparison.
+
+## Pause and coordination
+
+Research and further GPU training are paused pending an explicit restart. Documentation updates do not restart them. Preserve task-specific review states and the disabled compute gate used by the structural-search work.
+
+Externally managed collaboration tasks may appear orphaned to Iteris. Do not run recovery or reset them on that basis. Before resuming, read their saved checkpoints, check disk space and resource limits, and keep incomplete or UNKNOWN results at their recorded evidence level.
+
+Long searches and training runs require a concrete task and resource budget. Do not automatically launch `iteris run`, retrain, or resubmit a completed job.

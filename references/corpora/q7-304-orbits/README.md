@@ -1,27 +1,35 @@
-# 经核验的 Q7、304 边训练代表
+# Audited Q7 training representatives with 304 edges
 
-来源：[Minamoto 仓库固定提交 b94577f](https://github.com/minamominamoto/c4free-hypercube/tree/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b)，许可证见 `../minamoto-b94577f/LICENSE`。这些是已公开构造，不是本项目的新发现。
+Source: [Minamoto, pinned commit b94577f](https://github.com/minamominamoto/c4free-hypercube/tree/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b). The upstream license is in `../minamoto-b94577f/LICENSE`. These are published constructions, not discoveries of this project.
 
-`representatives.jsonl` 有 180 行，每行是一张 Q7 中的 304 边无四圈图。按原目录的轨道编号，各取标号最早的一个代表。初始训练时均匀选择代表，再随机坐标置换和异或翻转，所以不同轨道在期望上等权。增强操作只改变标号，不创造新的轨道。
+`representatives.jsonl` contains 180 C4-free Q7 graphs with 304 edges, one representative per orbit in the published catalogue. Initial uniform representative sampling followed by coordinate permutations and XOR translations gives each catalogue orbit equal expected weight. Augmentation changes labels, not orbits.
 
-`audit.json` 绑定输入版本、原始文件与代表文件的 SHA-256，并记录审核范围：
+## Audit scope
 
-- 本项目 `scripts/build_q7_corpus.py` 调用固定的独立整数验证器，逐个验证 19,866 个原始构造的顶点、边、重复边、全部方形和公共邻居条件；每个都恰为 304 边，且标号无重复。
-- 本项目另写的映射检查逐个验证 19,866 条“轨道代表 → 原始构造”的坐标置换与异或翻转证据。
-- 读取并复跑固定版本的上游 `q7_orbit_witness_check.py --canonical`，对全部 180 个代表各遍历 645,120 个立方体对称，确认记录的最小表示及彼此不同。日志见 `canonical-check.log`。这一步是上游检查算法的完整复跑，不是另一套独立规范化算法。
+`audit.json` binds the source revision and the hashes of input and representative files:
 
-目录里 389 个标号构造为 odd-square，对应代表中的 6 个轨道。其余 174 个代表不属于这一类。这个类别划分不改变模型的合法动作：生成过程仍允许空方形及保留两条边的方形。
+- `scripts/build_q7_corpus.py` used the fixed independent integer verifier on all 19,866 original constructions: vertex ranges, cube edges, duplicates, all squares, and common-neighbor conditions. Every graph had exactly 304 edges, with no duplicate exact labelings.
+- A separately written mapping check verified all 19,866 coordinate-permutation/XOR witnesses from an orbit representative to its catalogue graph.
+- The pinned upstream `q7_orbit_witness_check.py --canonical` was read and rerun over all 645,120 cube symmetries for each of the 180 representatives, confirming recorded minima and their distinctness. See `canonical-check.log`. This is a complete rerun of the upstream canonicalization algorithm, not a second independently designed algorithm.
 
-训练运行用 `--population representatives.jsonl --population-audit audit.json` 显式载入；SHA-256、代表数量、304 边条件或审核完成状态不符时停止。JSON 审核记录用于绑定本次审核的文件，程序启动时不重跑整个轨道普查。
+The catalogue contains 389 odd-square labeled graphs, corresponding to six representative orbits. The other 174 representatives are outside that class. The generator still permits empty and two-edge squares.
 
-此试跑用全部 180 个代表作为训练数据，没有留出测试集，不声称对未见轨道的泛化。后续在线精英池仍按边数筛选并按精确标号去重，不保证各轮仍然轨道等权。180 只描述这个已发布目录，不是所有可能的 304 边构造的完整分类。
+Training explicitly loads `--population representatives.jsonl --population-audit audit.json`. A mismatched hash, representative count, edge count, or incomplete audit stops loading. The record binds previously audited files; startup does not repeat the entire orbit census.
 
-## 复核
+## Training and holdout boundaries
 
-完整原始目录约 64 MB，保留在本地但不放入本仓库 Git 历史。重新复核时，从上述固定提交下载 `q7_edges_304.jsonl.part1`、`part2`、`part3` 到 `references/corpora/minamoto-b94577f/`；校验器、证据与许可证已随项目保存。然后在项目根目录运行：
+The first corpus pilot used all 180 representatives without a holdout and made no unseen-orbit generalization claim. Subsequent elite pools were selected by edge count and deduplicated by exact labeling, not kept uniformly weighted by orbit.
+
+The later diagnostic suite splits 144 training and 36 held-out representatives before augmentation and excludes generated 304-edge-or-larger graphs from feedback. See the [diagnostic plan](../../../docs/graphgps-pilot-diagnostic-plan.md). This holdout is specific to those runs; the project had previously used all 180.
+
+The 180 orbits describe the published catalogue only. They are not a complete classification of all possible 304-edge Q7 graphs.
+
+## Reproduce the audit
+
+The full original catalogue is approximately 64 MB and is excluded from Git. Download `q7_edges_304.jsonl.part1`, `.part2`, and `.part3` from the pinned upstream commit into `references/corpora/minamoto-b94577f/`. The checkers, witnesses, and license are included locally. Then run from the repository root:
 
 ```bash
 python3 scripts/build_q7_corpus.py --canonical
 ```
 
-构造合法性和映射验证只用 Python 标准库，完整最小表示检查另需 NumPy。未传 `--canonical` 时，生成的审核记录保持未完成状态，不能用于正式训练。
+Graph and mapping checks use the Python standard library; complete canonicalization additionally requires NumPy. Without `--canonical`, the resulting audit remains incomplete and cannot authorize production training.

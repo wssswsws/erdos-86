@@ -12,5 +12,5 @@ iteris_local="$project_root/../../tools/iteris/.venv/bin/iteris"
 if [ -x "$iteris_local" ]; then
     exec "$iteris_local" "$@"
 fi
-printf '%s\n' 'Iteris 未安装：请安装官方 Iteris，或将 ITERIS_BIN 设置为其可执行文件的完整路径。' >&2
+printf '%s\n' 'Iteris is not installed. Install official Iteris or set ITERIS_BIN to its absolute executable path.' >&2
 exit 127

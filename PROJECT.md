@@ -1,9 +1,11 @@
-# erdos-86
+# Erdős #86 research project
 
-原题：确定超立方体中无四圈子图的渐近最大边数。
+The original problem asks for the asymptotic maximum number of edges in a C4-free subgraph of a hypercube. Our initial finite target is to understand the known 304-edge subgraphs of Q7 and either construct a verified 305-edge example or obtain a precisely scoped structural result.
 
-初期研究目标：研究 Q7 中的 304 边构造，搜索至少 305 边的例子，或给出范围明确且经查新的局部结构结论。
+The current project-reviewed interval is **304 ≤ ex(Q7,C4) ≤ 305**. An elementary [facet-congruence proof](docs/q7-upper-bound-305.md) establishes the upper bound. No 305-edge construction has been found, and historical novelty has not been established.
 
-题目定义和证据要求见 `sources/erdos-86.tex`。已完成五个来源的现有研究入库、讲义方法定位与 Q7–Q15 已知证书复核，尚未启动研究代理或机器学习训练。
+The source intake, Q7–Q15 certificate checks, 180-orbit training-corpus audit, GraphGPS implementation, CPU smoke tests, A100 calibration, and two GPU experiments are complete. The latest six-run experiment reached a verified maximum of 294 edges from the model; it did not demonstrate a competitive search advantage. Its complete candidate archive and checkpoints still require transfer and batch review.
 
-综述：`docs/existing-research.md`。方法说明：`docs/ml-methods-from-lectures.md`。新增 11 条 Iteris 持久记录，后续任务见 `tasks/TASK_POOL.json`。
+Start with the [research overview](docs/existing-research.md), [four directions toward 305](docs/toward-305.md), [model architecture](docs/graphgps-route4.md), and [latest experiment results](docs/graphgps-diagnostic-suite-results.md). Mathematical definitions and acceptance criteria are in [sources/erdos-86.tex](sources/erdos-86.tex).
+
+Research is paused. A future restart must preserve the scope of incomplete searches, pending reviews, and existing evidence. Documentation maintenance and publication do not authorize new computation or training.

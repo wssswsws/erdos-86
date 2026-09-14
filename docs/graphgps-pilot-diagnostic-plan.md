@@ -1,63 +1,63 @@
-# 路线 4 第二次训练：参考池权重对照
+# Second GraphGPS experiment: protected reference-weight diagnostics
 
-用户已授权修改训练代码并再次提交。本轮保留 GraphGPS 的局部约束图消息传递与全局边变量注意力，重点修正训练目标、评测与局部搜索。提交时使用固定提交的独立 worktree；六次运行共用一张 A100，依次执行。
+This is the design record for **Slurm 21929229**, now completed. Six runs executed sequentially on one A100 80GB PCIe using code `51bfea0cccf024553a28dd43662082161bb3e6c8`. The [final results](graphgps-diagnostic-suite-results.md) replace earlier startup observations as the current status. No further training is automatically scheduled.
 
-**已提交并开始运行：Slurm 21929229，g-10-01，1 张 A100 80GB PCIe。** 固定代码为 `51bfea0cccf024553a28dd43662082161bb3e6c8`，首个运行是 `reference80 / seed 8611`，已观察到训练第 600–1000 步。此为启动核对，不表示六次训练完成。回执及实际结果/日志路径见 [submission.json](../artifacts/experiments/diagnostics-submissions/51bfea0cccf0/submission.json) 与 [observed-startup.json](../artifacts/experiments/diagnostics-submissions/51bfea0cccf0/observed-startup.json)。
+The architecture retains local constraint-graph message passing and global edge-variable attention. The experiment changes population sampling, local search, and evaluation to test the suspected dilution of high-quality references.
 
-## 可检验的问题
+## Testable question
 
-保持高质量参考图的训练权重，是否能减少原试验后续生成质量下降，并提高接近或达到 304 的频率？这是有界的学习方法实验，不预设 305 存在或可以找到。
+Does preserving the training weight of 304-edge references reduce deterioration after generated graphs enter the pool and increase the frequency of high-quality generated candidates? This bounded experiment does not assume that 305 exists or is reachable by the model.
 
-| 配置 | reference80 | legacy_topk |
+| Setting | reference80 | legacy_topk |
 | --- | --- | --- |
-| 共同初始参考集 | 144 个 304 边轨道代表 | 相同 |
-| 固定验证集 | 剩余 36 个轨道代表 | 相同 |
-| 后续参考图抽样概率 | 有探索池时固定 80% | 按训练池数量均匀抽样，填满后为 144/512=28.125% |
-| 探索训练池 | 最多 368 张低于 304 边的生成图，按边数筛选 | 相同规则 |
-| 初始化种子 | 8611、8612、8613 | 与实验组配对 |
-| 网络与优化器 | 宽度 128、4 层、8 头；AdamW | 相同 |
-| 训练量 | 初始 10,000 步，之后三次各 3,000 步，共 19,000 步 | 相同 |
-| 主搜索样本 | 三轮各 2,048 张，共 6,144 张 | 相同 |
+| Initial reference set | 144 audited 304-edge orbit representatives | Same |
+| Fixed holdout | Remaining 36 orbits | Same |
+| Reference sampling after feedback | 80% when exploration data exists | Uniform over the pool; 144/512 = 28.125% when full |
+| Exploration pool | Up to 368 generated graphs below 304 edges, selected by edge count | Same |
+| Seeds | 8611, 8612, 8613 | Paired seed labels |
+| Model / optimizer | Width 128, four layers, eight heads; AdamW | Same |
+| Training | 10,000 initial steps plus three blocks of 3,000: 19,000 total | Same |
+| Main generation | Three rounds of 2,048: 6,144 total | Same |
 
-两组只改变训练池抽样权重。这里的 `legacy_topk` 保留原来的均匀回填思想，但也使用新的轨道划分、搜索器、评测及预算，不能把它说成旧作业 21925840 的逐项复现。六次运行的顺序在不同种子之间交替，避免所有实验组都先跑。
+The configured treatment difference is population sampling weight. `legacy_topk` retains the old uniform-feedback idea but uses the new split, searcher, evaluation, and budget; it is not an exact reproduction of the first pilot. Run order alternates between arms across seeds.
 
-参考集和验证集先在已审核的轨道代表上划分，再分别做随机对称增强。新运行从随机权重开始，不加载旧 checkpoint。此前 pilot 用过全部 180 个代表，所以这不是一个从未被项目接触过的盲测集。它提供本轮模型未训练轨道的诊断。
+Training and validation orbits are split before separate symmetry augmentation. Each run begins from random weights, not an old checkpoint. The earlier pilot used all 180 representatives, so this is a holdout for these runs, not a historically unseen project test set.
 
-为严格防止验证轨道回流，**所有在线生成的 304 边及以上图都不参与本轮回填**：即使它是训练轨道的副本，也一并排除。低于 304 边的图不可能与 304 边验证图同轨道，因此不需要用不可靠的哈希近似判断对称等价。新生成的 304 图仍完整保存用于后续轨道审查；305 图则独立验证后结束整个套件。
+To prevent symmetric validation examples from returning through feedback, **every generated graph with at least 304 edges is excluded from training feedback**, even if it happens to belong to a training orbit. A graph with fewer edges cannot be isomorphic to a 304-edge validation graph. Generated 304-edge graphs would still be saved for orbit review; an independently verified 305-edge graph would stop the suite.
 
-## 搜索与评测变化
+## Search and evaluation
 
-- 局部扰动由随机删 4–12 条边，改为删 8–24 条，并混合随机区域与沿共同方形扩展的区域。修复后的当前状态可按从 2.0 降至 0.25 的温度概率接受边数下降；最好证书单独保留，返回值不因暂时退步而变差。
-- 每个模型样本都配一个从已知参考图出发的传统搜索，以及一个从空图出发的传统搜索。它们使用相同搜索参数，并保存完整边表。此对照匹配局部搜索次数，不匹配神经训练在内的总算力。
-- 未训练、10,000、13,000、16,000、19,000 步均保存独立 checkpoint。在同一组固定的训练/验证前缀上评测各 1,024 个位置；评测使用独立随机数流，不改变训练 RNG。
-- 每个阶段还用固定采样种子生成并修复 256 张图。这样可以比较未训练网络，且最终 19,000 步的模型也实际接受生成评测。每次运行共 1,280 张阶段评测样本，不回填训练。
-- 日志显示最近 100 步平均 loss、非强制位置 BCE，以及实际采用的参考集抽样概率。报告记录平均值、90/99 分位、达到 300/304/305 的次数。
-- 主搜索和阶段评测都保留原始及修复后边表、独立验证结果与标号哈希；主搜索另外保存两种传统基线边表。使用流式 gzip，避免再次遗漏原始对象。不同标号不等于不同对称轨道。
+- Local perturbations delete 8–24 edges, mixing uniformly selected edges and regions expanded through shared squares. Repaired states may decrease in edge count under an annealed acceptance rule, with temperature falling from 2.0 to 0.25. The best verified certificate is retained separately.
+- Each main model candidate is paired with classical search from a reference graph and from an empty graph. Both use the same search parameters and save complete edge lists. This matches search settings, not total compute including neural training.
+- Checkpoints are saved before training and at 10,000, 13,000, 16,000, and 19,000 steps. Each stage evaluates 1,024 fixed training-prefix decisions and 1,024 fixed validation-prefix decisions, with an evaluation RNG independent of training.
+- Each stage also generates and repairs 256 graphs with fixed sampling seeds: 1,280 evaluation samples per run, excluded from feedback. Thus the final checkpoint is actually sampled rather than merely saved after the last training block.
+- Logs report 100-step mean loss, non-forced BCE, and actual reference-sampling probability. Reports include means, 90th/99th percentiles, and counts reaching 300, 304, and 305.
+- Main and stage evaluation preserve raw/repaired edge lists, validation results, and exact-label hashes. Main search also preserves both classical baselines. Gzip streams keep the original objects without losing raw graphs as in the first pilot. Different labels do not establish different orbits.
 
-所有候选均允许空方形；本轮没有把“至少四个空方形”变成单独奖励。现有 290 边候选已能产生空方形，真正需要提高的是同时满足这些结构条件时的边数。完整候选及其结构统计保留供后续筛选。
+All candidates may contain empty squares. No separate reward for the number of empty squares was added: lower-edge-count candidates already had them, so the challenge is maintaining high edge count at the same time.
 
-这是对当前生成流程的可判别改进。本轮尚未实现“神经网络选择重构区域 + SAT/MIP”的新训练目标，也没有声称全局注意力或 GNN 分支已显示独立收益；应根据本轮结果决定是否进一步转向该方案。
+This experiment did not implement a learned repair-region selector or learned SAT/MIP action policy. Nor does it isolate the value of the GNN or attention branch.
 
-## 预算与停止条件
+## Budget and stopping rules
 
-预计约 **2–3 A100 小时**。这是根据上一作业的 GPU 吞吐、新训练步数与样本数，以及本机局部搜索计时得到的规划范围；集群 CPU 开销与新增评测尚未实测。
+The planned allocation was **2–3 A100 hours**, extrapolated from previous throughput and local repair measurements. The actual completed allocation was **2.0783 GPU hours**.
 
-- 六次运行顺序使用 **1 张 A100、4 CPU、16 GB 内存**。
-- 每次运行程序上限 30 分钟；套件软上限 3.5 小时，Slurm 硬上限 4 小时。
-- 超过单次预算时保存当前报告；套件明确标为含限时运行，不能声称全部训练量完成。
-- 找到独立验证通过的至少 305 边图，保存来源和边表后结束整个套件。
-- 发生程序错误立即停止，不自动重试，不在登录节点训练。
+- One A100, four CPUs, and 16 GB RAM; six sequential runs.
+- Per-run program limit: 30 minutes. Suite soft limit: 3.5 hours. Slurm hard limit: four hours.
+- A timed-out run saves a partial report and is labeled accordingly; it cannot be counted as completing all planned training.
+- An independently verified graph with at least 305 edges stops the suite after saving provenance and the edge list.
+- Errors stop execution without automatic retry. Training does not run on the login node.
 
-## 提交与产物
+## Submission and artifacts
 
-从远端主仓库运行一次：
+For an explicitly authorized new reproduction, submit once from the main checkout:
 
 ```bash
 bash scripts/slurm/submit_diagnostics.sh
 ```
 
-脚本为当前提交创建 `.runs/diagnostics-提交前12位/` 独立 worktree，引用主仓库现有 `.venv`。提交回执在主仓库 `artifacts/experiments/diagnostics-submissions/提交前12位/`。同一个提交已有回执目录时拒绝重复提交；若提交响应中断，应先查看回执和 Slurm。
+The launcher creates `.runs/diagnostics-SHORT_COMMIT/` for the current revision and uses the main checkout's `.venv`. The receipt is written to `artifacts/experiments/diagnostics-submissions/SHORT_COMMIT/`. An existing receipt directory blocks duplicate submission. If submission output is interrupted, inspect the receipt and Slurm before retrying.
 
-实际结果位于该 worktree 的 `artifacts/experiments/slurm-JOB_ID/diagnostics/`，包含 `suite-report.json` 以及六个组别/种子子目录。Slurm 日志也位于该 worktree 的 `logs/`。不要误去上一作业的输出目录找新结果。
+Actual output is under the worktree's `artifacts/experiments/slurm-JOB_ID/diagnostics/`, containing `suite-report.json` and six arm/seed directories. Slurm logs are in that worktree's `logs/`. The [original receipt](../artifacts/experiments/diagnostics-submissions/51bfea0cccf0/submission.json) and [startup observation](../artifacts/experiments/diagnostics-submissions/51bfea0cccf0/observed-startup.json) preserve historical locations.
 
-本机两组 CPU smoke 和新增保护测试记录在 `artifacts/experiments/diagnostics-preparation/`。计算节点在开始六次运行前还会运行同一套测试。首次报告重点检查两组初始权重哈希相同、固定评测样本哈希相同、回填后参考概率分别为 80% 和约 28.125%，然后比较配对种子的生成质量。
+Local preparation records are in `artifacts/experiments/diagnostics-preparation/`: 21 tests, a two-arm CPU smoke, and validation outputs. Initial checks compared paired initial-weight hashes, fixed-evaluation hashes, and the 80% versus 28.125% sampling weights. The final statistical interpretation must also account for the fact that the full GPU runs did not branch from one identical pretrained checkpoint.

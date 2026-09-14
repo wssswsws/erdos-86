@@ -1,58 +1,55 @@
-# A100 校准报告：Slurm 21924947
+# A100 calibration: Slurm 21924947
 
-核查日期：2026-09-12。
+Reviewed September 12, 2026. **Calibration succeeded.** The short A100 80GB PCIe measurement predicted approximately **0.316 allocated GPU hours, or 19 minutes**, for the original complete pilot. The earlier 2–4 hours was a premeasurement reservation; four hours was a stopping limit, not a required runtime.
 
-校准成功。按这次 A100 80GB PCIe 的短测结果，当前完整 pilot 配置预计占用一张 GPU 约 **0.316 小时，即 19 分钟**。此前的 2–4 小时只是未测量时的预算预留；4 小时是程序停止上限，不是它必然运行的时长。这次校准没有产生新的数学成果，也没有测量正式训练后的搜索效果。
+This calibration measured execution and throughput, not trained search quality. The later [corpus pilot](corpus-pilot-21925840-results.md) completed in 19 min 39 sec.
 
-## 回传与可追溯性
+## Provenance and transfer
 
-- [GitHub 报告分支](https://github.com/wssswsws/erdos-86/tree/results/calibration-21924947)：`results/calibration-21924947`。
-- [报告提交](https://github.com/wssswsws/erdos-86/commit/74db31c6dba00acce5d4fcf48b84fe828cfdd9cf)：`74db31c6dba00acce5d4fcf48b84fe828cfdd9cf`，含 8 个文件。已 fetch 并逐文件复制到本地同名报告目录，内容与提交一致。
-- 实验代码版本：`252466d29e6c67ace2640c1ccfd45f64fa22657a`；报告标记源码工作区 `clean`。报告中的 8 个 Python 源文件 SHA-256 均与当前本地文件匹配。
-- 通过 Horizon 读取 `sacct -j 21924947 -o JobID,State,ExitCode,Elapsed,AllocTRES -P`：主作业 `COMPLETED`，`ExitCode=0:0`，运行 `00:00:25`，分配 1 GPU、4 CPU、16 GB 内存。此项为终端观察记录，原始 8 个文件中未包含 sacct 导出。
-- [程序退出码](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/exit-code.txt) 为 `0`；[测试报告](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/tests.xml) 为 15 项通过、0 失败、0 错误、0 跳过。测试套件用时 5.72 秒；不能把它理解成 15 项都专门在 CUDA 上执行。
+- Results branch: [results/calibration-21924947](https://github.com/wssswsws/erdos-86/tree/results/calibration-21924947).
+- Report commit: [74db31c](https://github.com/wssswsws/erdos-86/commit/74db31c6dba00acce5d4fcf48b84fe828cfdd9cf), containing eight files. They were fetched and copied into the matching local artifact directory; bytes matched that commit.
+- Experiment code: `252466d29e6c67ace2640c1ccfd45f64fa22657a`; its source working tree was recorded as clean. All eight Python source hashes matched the local files **at the time of review**.
+- Slurm accounting was read through Horizon: `COMPLETED`, exit code `0:0`, elapsed `00:00:25`, one GPU, four CPUs, and 16 GB memory. This was a terminal observation; the original eight-file report did not include an accounting export.
+- [Exit code](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/exit-code.txt): 0. [Tests](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/tests.xml): 15 passed, no failures, errors, or skips; 5.72 seconds. This does not mean each test specifically ran on CUDA.
 
-## 实测数据
+## Measurements
 
-来源：[hardware.json](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/hardware.json)、[benchmark.json](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/benchmark.json)。
+Sources: [hardware.json](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/hardware.json) and [benchmark.json](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/benchmark.json).
 
-| 项目 | 结果 |
+| Item | Measurement |
 | --- | --- |
-| GPU | NVIDIA A100 80GB PCIe；可见 GPU 数 1 |
-| 环境 | Python 3.13.13，PyTorch 2.10.0+cu126，CUDA 12.6；支持 BF16 |
-| 模型 | 4 层、宽度 128、8 个注意力头；1,324,033 个参数 |
-| 训练批量 / 采样批量 | 32 / 32 |
-| 一步训练 | 32.88 毫秒，2 步预热后计时 20 步 |
-| 一次完整网络前向 | 3.13 毫秒，批量 32 |
-| 生成一批 32 个图 | 1.533 秒，包含逐边采样的 448 步 |
-| 单图局部修复 | 平均 7.65 毫秒，16 次扰动；在 CPU 上执行 |
-| PyTorch 峰值已分配显存 | 543,417,856 字节，约 0.506 GiB |
+| GPU | NVIDIA A100 80GB PCIe; one visible GPU |
+| Environment | Python 3.13.13; PyTorch 2.10.0+cu126; CUDA 12.6; bf16 supported |
+| Model | Four layers, width 128, eight heads, 1,324,033 parameters |
+| Training / sampling batch | 32 / 32 |
+| Training step | 32.88 ms; 20 timed steps after two warmup steps |
+| Full-network forward pass | 3.13 ms at batch 32 |
+| Generate 32 complete graphs | 1.533 sec, including 448 sequential decisions |
+| CPU repair per graph | Mean 7.65 ms with 16 kicks |
+| Peak PyTorch-allocated CUDA memory | 543,417,856 bytes, approximately 0.506 GiB |
 
-显存值只统计 PyTorch 分配的张量内存，不是整张 GPU 或整个进程的总显存占用。它说明当前配置没有明显的张量显存压力，但不足以直接决定更大 batch 的最佳值。
+The memory measure includes allocated tensors, not total process or device memory. It indicates no obvious tensor-memory pressure at this configuration; it does not identify the optimal larger batch size.
 
-## 完整试跑预算
+## Pilot extrapolation
 
-来源：[estimate.json](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/estimate.json)。当前配置共训练 11,000 步，生成 12,288 个图，每批 32 个，共 384 批。
+The [estimate](../artifacts/experiments/slurm-21924947/benchmark-seed-8601/estimate.json) uses 11,000 training steps and 12,288 graphs in 384 batches.
 
-| 阶段 | 外推时间 |
+| Stage | Estimated duration |
 | --- | ---: |
-| 训练 | 6.03 分钟 |
-| 逐边生成 | 9.81 分钟 |
-| 模型候选的 CPU 修复 | 1.57 分钟 |
-| 配对的传统局部搜索基线 | 约 1.57 分钟 |
-| 合计 | **18.98 分钟 / 0.316 GPU 小时** |
+| Training | 6.03 min |
+| Sequential generation | 9.81 min |
+| CPU repair of model candidates | 1.57 min |
+| Paired classical local search | Approximately 1.57 min |
+| Total | **18.98 min / 0.316 GPU hours** |
 
-CPU 修复和基线串行执行时，GPU 仍处于分配状态，因此算入 GPU 占用小时。基线时间是用候选修复时间近似的，没有独立测量从高质量种子出发的基线耗时。
+Serial CPU repair counts toward GPU allocation time because the GPU remains reserved. Baseline time was approximated from candidate-repair time, not independently measured for high-quality starting graphs.
 
-这不是正式训练的实测总时长：只测了 20 个训练步和一批 32 个样本；正式循环还有初始化种群、独立验证、检查点保存、候选写盘等开销，训练数据与图结构也会变化。因此建议首个正式单卡试跑预留 **1 小时**，结束后再以完整报告校正预算。此建议不修改现有脚本，也不代表已提交新作业。
+Only 20 training steps and one batch were timed. Population initialization, independent verification, checkpoint saving, candidate writes, and changing graph structures add uncertainty. The original recommendation was a one-hour allocation for the first complete single-GPU pilot; it was subsequently run and reviewed separately.
 
-如果四张 A100 分别执行四个相同规模的独立种子，在吞吐相同且同时启动的理想情况下，总消耗约 **1.27 GPU 小时**、墙钟时间仍约 19 分钟，再加上述开销。这不是把单个试跑加速四倍；四卡同时工作的实际 CPU 和 I/O 竞争还未测量。
+Four independent equal-sized seeds on four A100s would ideally consume about 1.27 GPU hours while taking roughly 19 minutes of wall time, plus overhead. This is not a fourfold speedup of one experiment, and concurrent CPU/I/O contention was not measured.
 
-## 对研究的含义与下一步
+## Interpretation
 
-1. GPU 环境与训练、采样路径已经跑通。实测吞吐使多种子对比实验在计算预算上可行。
-2. 校准只使用一个已知 304 边构造做短暂训练，报告没有记录新图的边数分布或学习提升；不能据此声称得到新的 304 边构造、找到 305 边图，或模型胜过传统搜索。
-3. 正式 Slurm pilot 仍使用默认 bootstrap，尚未接入论文提供的多样 304 边构造语料。下一步应先独立验证这些数据，明确同构轨道与采样策略，并把语料参数接入提交脚本。
-4. 数据准备好后，先做一次单卡正式试跑，检查原始样本、修复后样本及配对基线的边数分布，再决定是否开展四种子实验。配对基线目前匹配的是修复次数，不是总计算量，结论应遵守这一比较范围。
+The CUDA training and sampling path worked, and measured throughput made bounded multi-seed experiments affordable in allocation time. Calibration used one known 304-edge graph for short training and did not establish a new construction or an advantage over classical search.
 
-本次操作已完成报告回传核验和本地归档；未提交新的 GPU 作业。
+At calibration time, the pilot still used bootstrap data. The subsequent corpus work added and audited 180 diverse 304-edge orbit representatives; see the [corpus note](../references/corpora/q7-304-orbits/README.md). This historical calibration report should not be read as the current data configuration or as authorization to launch another job.

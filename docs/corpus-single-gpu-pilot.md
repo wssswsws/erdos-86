@@ -1,44 +1,46 @@
-# 多样 304 边训练集与首次单卡试验
+# Audited 304-edge corpus and first single-GPU pilot
 
-用户于 2026-09-12 授权：接入经过验证的多样 304 边构造，然后提交一次单卡试验。
+The September 12 experiment integrated verified diverse 304-edge constructions and submitted one single-A100 pilot.
 
-**完成记录：作业 21925840 正常完成，单张 A100 80GB PCIe 实测 19 分 39 秒（0.3275 GPU 小时），完成 11,000 步与 12,288 张候选。模型原始生成最高 286 边，修复后最高 290 边；最终 304 边来自初始训练集，未找到 305。** 全部保存的修复候选已在本地独立复核，详见[完整结果与诊断](corpus-pilot-21925840-results.md)。运行代码为 `46dd29801eef68c54151241805462fe4eb83977e`；[submission.json](../artifacts/experiments/q7-corpus-pilot-preparation/submission.json) 保留当时的提交快照。
+**Slurm 21925840 completed normally:** one A100 80GB PCIe, 19 min 39 sec (**0.3275 GPU hours**), 11,000 training steps, and 12,288 generated candidates. The best raw model graph had 286 edges; repair reached 290. The overall 304-edge best came from the initial training set; no 305-edge graph was found. All saved repaired candidates were independently checked locally. See the [full results](corpus-pilot-21925840-results.md).
 
-## 本次变化
+Code: `46dd29801eef68c54151241805462fe4eb83977e`. The original [submission record](../artifacts/experiments/q7-corpus-pilot-preparation/submission.json) preserves the submitted configuration.
 
-初始训练集从单个已知 304 边构造及质量不均的 bootstrap，改为公开目录的 **180 个不同立方体对称轨道代表，每个都是经过验证的 304 边构造**。验证记录、原始来源和限制见[语料说明](../references/corpora/q7-304-orbits/README.md)。
+## Data and initialization
 
-初始均匀采样代表并做随机立方体对称增强；模型仍随机初始化，每次生成都从 448 条边全未决定的状态开始，逐边选择。GraphGPS 的局部约束图消息传递、全局边变量注意力、硬四圈屏蔽和局部搜索逻辑未改变。
+The initial training population changed from one known graph and uneven bootstrap data to **180 verified representatives of distinct cube-symmetry orbits**, each with 304 edges. Sources and audit scope are in the [corpus README](../references/corpora/q7-304-orbits/README.md).
 
-通用 Slurm pilot 已强制传入代表文件和审核记录，缺失或哈希不一致会停止。训练报告将保存数据及审核记录的 SHA-256、来源版本、初始轨道审核范围；后续精英池只按精确标号去重，没有独立留出评测。
+Representatives were sampled uniformly and augmented by random cube automorphisms. Network weights were initialized randomly. Each generated graph began with all 448 edge decisions undecided. Local constraint-graph messages, global attention, exact C4 masking, and repair remained in place.
 
-## 这一次提交的配置
+Slurm pilot launchers require both the representative file and its audit record and stop on missing data or a hash mismatch. Reports preserve the population and audit hashes, source revision, and initial audit scope. Later elite pools used exact-label deduplication; this pilot had no held-out evaluation set.
 
-| 项目 | 设置 |
+## Submitted configuration
+
+| Item | Setting |
 | --- | --- |
-| 提交脚本 | `scripts/slurm/corpus-pilot.sbatch` |
-| 配置 | `configs/graphgps/corpus-pilot.json` |
-| 资源 | gpuq / hpcusers，1 张 A100、4 CPU、16 GB 内存 |
-| 种子 | 8601 |
-| 模型 | 宽度 128、4 层、8 头；初始权重随机 |
-| 训练 | 先 5,000 步，再 3 轮，每轮后训练 2,000 步 |
-| 生成 | 每轮 4,096 张，共 12,288 张，batch 32 |
-| 修复与对照 | 每张 16 次扰动；配对传统局部搜索使用相同次数 |
-| 预算 | 程序 55 分钟软上限，Slurm 1 小时硬上限，无自动重试 |
-| 完整运行时间 | 校准外推约 19 分钟 / 0.316 GPU 小时；本次 Slurm 实测 19 分 39 秒 / 0.3275 GPU 小时 |
-| 达标行为 | 找到经验证的至少 305 边图即停止并保存 |
+| Launcher | `scripts/slurm/corpus-pilot.sbatch` |
+| Configuration | `configs/graphgps/corpus-pilot.json` |
+| Resources | `gpuq` / `hpcusers`; one A100, four CPUs, 16 GB RAM |
+| Seed | 8601 |
+| Model | Width 128, four layers, eight heads; random initial weights |
+| Training | 5,000 initial steps, then 2,000 steps after each of three rounds |
+| Generation | 4,096 per round, 12,288 total; batch 32 |
+| Repair and comparison | 16 kicks per graph; paired classical search used the same count |
+| Limits | 55-minute program soft limit; one-hour Slurm hard limit; no automatic retry |
+| Runtime | Calibration estimate 0.316 GPU hours; observed 0.3275 GPU hours |
+| Target behavior | Save and stop on an independently verified graph with at least 305 edges |
 
-提交命令（只执行一次）：
+For a separately authorized reproduction, submit once from the repository root:
 
 ```bash
 mkdir -p logs
 sbatch scripts/slurm/corpus-pilot.sbatch 8601
 ```
 
-输出目录为 `artifacts/experiments/slurm-JOB_ID/pilot-seed-8601/`；日志为 `logs/erdos86-corpus-JOB_ID.out` 和 `.err`。若命令响应中断，应先用 `squeue`/`sacct` 查明是否已产生作业，不能直接重复提交。
+Output: `artifacts/experiments/slurm-JOB_ID/pilot-seed-8601/`. Logs: `logs/erdos86-corpus-JOB_ID.out` and `.err`. If submission output is interrupted, check `squeue` and `sacct` before retrying.
 
-## 验收范围
+## Validation boundary
 
-提交前检查语料、16 项模型/数据测试、Bash 语法、单卡启动参数及使用新语料的 CPU smoke。首次 GPU 报告重点查看 `population_source`、初始种群数量、停止原因、原始/修复后/对照边数分布，以及总时长。
+Before submission, checks covered the corpus, 16 model/data tests, Bash syntax, single-GPU launch arguments, and a CPU smoke using the new data. Review `population_source`, initial population size, stopping reason, candidate distributions, and elapsed time in the real report.
 
-继承的 304 边最佳值不算模型新发现；配对传统搜索只匹配修复次数，不匹配训练在内的总算力。短试跑未找到 305 不能证明不存在，也不能凭此判定整个学习路线无效。
+An inherited 304-edge best is not a model discovery. The classical comparison matched repair counts, not total compute including training. Failure to find 305 in this bounded run does not prove nonexistence or rule out every learning approach. Further training is paused.

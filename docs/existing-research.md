@@ -1,63 +1,57 @@
-# Erdős #86：现有研究记录
+# Erdős #86: existing research and project checks
 
-更新：2026-09-12。根据用户指定的五个来源建立，并补充讲义引用的机器学习论文。
-本文记录已有结果及本项目的复核，不声称新的数学发现。
+Source intake: September 12, 2026. Updated September 13 to distinguish the historical Q7 upper bounds, the project's counting argument, and completed GPU work. External source observations below are dated snapshots, not a continuously updated literature survey.
 
-## 定义与当前边界
+## Definitions and bounds
 
-超立方体 $Q_n$ 的顶点是 $\{0,1\}^n$，边连接恰差一位的两个顶点。记
-$f(n)=\operatorname{ex}(Q_n,C_4)$，原题猜想是 $f(n)/(n2^{n-1})\to1/2$。
-有限维目标、特殊构造类别的最优值、一般渐近目标必须分别记录。
+The hypercube $Q_n$ has vertex set $\{0,1\}^n$; an edge joins strings differing in one coordinate. Write $f(n)=\operatorname{ex}(Q_n,C_4)$. The original conjecture is $f(n)/(n2^{n-1})\to1/2$. Fixed-dimensional constructions, restricted-class optima, and the asymptotic problem are separate targets.
 
-| 项目 | 本次采用的结果 | 证据范围 |
+| Quantity | Recorded result | Evidence boundary |
 | --- | --- | --- |
-| 渐近密度 | $1/2\le\pi_e(C_4)\le0.60318$ | 下界可由基本构造理解；上界来自 Baber，不是每个有限维的逐点上界 |
-| Q7 | $304\le f(7)\le308$ | 下界已复核边表；上界依赖文献 $f(6)=132$ 与平均法 |
-| Q8 | $682\le f(8)\le704$ | 下界已复核边表；704 来自同一平均法 |
-| odd-square 类 | $g(6)=132,g(7)=304,g(8)=682$ | 论文中特殊类别的定理；不能推出一般 $f=g$ |
+| Asymptotic edge density | $1/2\le\pi_e(C_4)\le0.60318$ | The upper bound is Baber's theorem, not a pointwise bound in every dimension. |
+| Q7 | $304\le f(7)\le305$ | Imported lower-bound certificate; [project-reviewed counting proof](q7-upper-bound-305.md). No priority claim or Lean formalization. |
+| Q8 | $682\le f(8)\le704$ | Imported lower-bound certificate; 704 is the older averaging estimate, retained as a valid coarse bound, not asserted to be strongest. |
+| Odd-square subclass | $g(6)=132,\ g(7)=304,\ g(8)=682$ | Restricted-class theorems in Minamoto v5; they do not imply $f=g$. |
 
-平均法可直接理解：$Q_n$ 有 $2n$ 个余维一子立方体，每条边属于其中 $n-1$ 个。
-分别限制到这些子立方体，再计数所有边，得到 $(n-1)f(n)\le2nf(n-1)$。
-代入 $f(6)=132$ 得到 308 和 704；我们没有重证历史上的 $f(6)$ 上界。
+There are $2n$ codimension-one subcubes, and each edge belongs to $n-1$ of them. Therefore $(n-1)f(n)\le2nf(n-1)$. The historical value $f(6)=132$ yields 308 and then 704. This project did not reprove the historical $f(6)$ upper bound during intake.
 
-## 五个来源分别提供什么
+The original source review missed a stronger old Q7 bound: [Graham–Harary–Livingston–Stout (1993), Table 2](https://web.eecs.umich.edu/~qstout/pap/subcubeft.pdf) gives $\lambda(7,2)\ge142$, where $\lambda$ is the minimum number of deleted edges needed to destroy every square. Thus $f(7)\le448-142=306$. The project subsequently checked the definition and table. The bound 308 was valid but weaker.
 
-### 1. Baber：渐近上界
+The September 13 project argument further excludes 306 edges. The [complete counting proof](q7-upper-bound-305.md) is independent of an earlier internal audit of 11 SAT branches. Neither provides a 305-edge construction or proves 304 optimal. Its historical novelty remains unchecked.
 
-[Turán densities of hypercubes，1201.3587v2](https://arxiv.org/html/1201.3587v2)，重点是第 3、4 节与定理 4.1。
-方法是统计小子立方体的出现频率，用旗代数的非负二次型约束得到半定规划；通过部分指定的边颜色控制计算规模。
-定理 4.1 给出 $\pi_e(C_4)\le0.60318$。
-原文指出 `PartialB.txt`、`PartialHypercubeEdgeDensityChecker` 位于 arXiv 源码附件。本次保存并阅读论文，尚未取得和重跑该上界证书。
-这是一条计算辅助证明路线，与训练神经网络搜索有限构造不同。
+## 1. Baber: an asymptotic upper bound
 
-### 2. Minamoto v5：有限构造和特殊类别
+[Turán densities of hypercubes, 1201.3587v2](https://arxiv.org/html/1201.3587v2), particularly Sections 3–4 and Theorem 4.1, proves $\pi_e(C_4)\le0.60318$.
 
-[#86 近期论文，2603.29127v5](https://arxiv.org/html/2603.29127v5)，2026-08-28。
-每个方形保留 1 或 3 条边的 odd-square 类自动无四圈。论文用局部场恒等式和整数限制证明该类在 6、7、8 维的最优值，并给出边表。
-19,866 个已发布 Q7 样本中的 389 个属于该类；180 个轨道是该目录的分类，不是全部 304 边构造的分类。
-数值 304、682 有更早的物理文献来源，v5 明确更正优先权及早期 Q8=680 猜测。
-本项目只直接复核已导入边表，没有复跑完整轨道分类，也没有将论文全文标为独立验证完成。
+The method counts small subcubes and applies nonnegative quadratic constraints from flag algebras in a semidefinite program. Partially specified edge colors reduce the computational size. The paper identifies `PartialB.txt` and `PartialHypercubeEdgeDensityChecker` in its arXiv source attachments. The paper was saved and read, but that upper-bound certificate was not obtained and rerun during intake.
 
-### 3. Minamoto 仓库：搜索和验证的分工
+This is a computer-assisted upper-bound proof, separate from neural search for finite constructions.
 
-[固定提交 b94577f](https://github.com/minamominamoto/c4free-hypercube/tree/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b)。
-保存了 README、许可证、主验证器、复现入口及部分搜索/结构检查程序；完整文件选择见下载清单。
-模拟退火、删除后修补用于找候选；边表验证和严格论证负责支持结论。
-README 中“arXiv 仍为 v4”的提示已过时，应以用户指定的 v5 为准。
-仓库也披露 Q6 的一般 ILP 未闭合最优间隙、部分恢复的历史脚本存在问题，因此“文件存在”不等于“历史搜索已完整复现”。
-原有 [Q7/Q8 独立验证器](../references/baselines/86-verify.py) 保持不变。
+## 2. Minamoto v5: finite constructions and a special class
 
-### 4. Wrona 仓库：提升与局部 ILP 修补
+[2603.29127v5](https://arxiv.org/html/2603.29127v5), dated August 28, 2026, studies the odd-square class: every square retains one or three edges, which automatically prevents C4s. Local-field identities and integer restrictions establish its optima in dimensions 6, 7, and 8.
 
-[固定提交 7b8554b](https://github.com/rafalwronapl/erdos86-hypercube-c4/tree/7b8554bf3e7562a4bc1fb217757e709ba63c3e26)。
-将两个无四圈图放在 $Q_{n+1}$ 的两个切片中，经过坐标置换/位翻转后连接部分对应顶点。
-若两个切片为 $G$ 和 $gG$，跨层边对应的顶点集必须在 $G\cap gG$ 中独立；于是可得 $2|E(G)|+\alpha(G\cap gG)$ 条边。
-之后用局部整数规划同时替换若干边，以改善构造。公开参数记录不是完整搜索器。
+Of the published 19,866 Q7 samples, 389 lie in that class. The 180 orbits classify that catalogue, not every possible 304-edge graph. The values 304 and 682 have earlier origins in the physics literature; v5 corrects attribution and the earlier Q8=680 conjecture.
 
-本次使用[新编写的独立验证器](../scripts/verify_wrona_certificates.py)读取数据，未导入上游程序。
-检查 SHA-256、顶点范围、合法超立方体边、重边，以及全部二维面和公共邻居对。
+Initial intake directly checked selected edge lists. The subsequent [corpus audit](../references/corpora/q7-304-orbits/README.md) checked all catalogue graphs and orbit witnesses and reran upstream canonicalization. This does not independently verify every theorem in the paper.
 
-| 维数 | 证书边数 | 检查的二维面数 | 四圈 |
+## 3. Minamoto's repository: search versus verification
+
+Sources were pinned to [commit b94577f](https://github.com/minamominamoto/c4free-hypercube/tree/b94577fd5e06e62e1c6895b7e4d2b0abeaea411b). The intake includes the README, license, main verifier, reproduction entrypoint, and selected search and structural-check scripts.
+
+Simulated annealing and delete-and-repair routines find candidates; edge-list checks and mathematical arguments support conclusions. The README's statement that arXiv was still at v4 was stale relative to the requested v5. The repository also reports an unclosed general Q6 ILP gap and problems in some recovered historical scripts. Available files do not by themselves demonstrate a complete reproduction of a historical search.
+
+The project's [independent Q7/Q8 verifier](../references/baselines/86-verify.py) remains unchanged.
+
+## 4. Wrona's repository: lifts and local ILP repair
+
+Sources were pinned to [commit 7b8554b](https://github.com/rafalwronapl/erdos86-hypercube-c4/tree/7b8554bf3e7562a4bc1fb217757e709ba63c3e26).
+
+Place C4-free graphs in the two slices of $Q_{n+1}$, align them by a coordinate permutation and bit flips, and choose vertical edges. For slices $G$ and $gG$, the selected vertical vertices must be independent in $G\cap gG$, giving $2|E(G)|+\alpha(G\cap gG)$ edges. Local integer programming then replaces several edges at once. Published parameters are not a complete search implementation.
+
+The project wrote a [separate verifier](../scripts/verify_wrona_certificates.py), without importing upstream code. It checked file hashes, vertex ranges, cube edges, duplicates, every square, and common-neighbor pairs.
+
+| Dimension | Certificate edges | Square faces checked | C4s |
 | --- | ---: | ---: | ---: |
 | 9 | 1505 | 4608 | 0 |
 | 10 | 3304 | 11520 | 0 |
@@ -67,28 +61,21 @@ README 中“arXiv 仍为 v4”的提示已过时，应以用户指定的 v5 为
 | 14 | 69909 | 372736 | 0 |
 | 15 | 148126 | 860160 | 0 |
 
-共检查 1,504,512 个二维面；详见[复核输出](../artifacts/experiments/literature-intake-20260912/wrona-independent-verification.json)。
-Q9–Q11 的数字超过仓库所比较的 BHN 一般公式；Q12–Q15 不超过。这个比较不等于完整历史查新。
-草稿中仍引用 Q8=680 的历史起点；其以 $f(8)=680$ 为假设的条件上界不可用于当前研究。
+The [verification output](../artifacts/experiments/literature-intake-20260912/wrona-independent-verification.json) covers 1,504,512 square faces. Q9–Q11 exceed the BHN general formula used for comparison in that repository; Q12–Q15 do not. This is not a complete historical novelty audit.
 
-### 5. Erdős 论坛：当前公开讨论
+The draft still uses the historical Q8=680 starting point. Conditional upper bounds assuming $f(8)=680$ cannot be used in the present project.
 
-[讨论线程](https://www.erdosproblems.com/forum/thread/86)通过浏览器成功读取。
-当前为 OPEN，3 条评论、0 条 proof claim、0 篇 proof exposition。
-三条分别涉及 Baber 常数、Wrona 证书与子立方体平均法。日期、作者、直链与限定见[观察记录](../references/user/source-pack/forum-86-observation.md)。
-论坛评论和“AI/他人已检查”的自述不自动构成独立证明；当前七份大维证书的有效性另由本项目程序复核支持。
+## 5. Erdős Problems forum
 
-## 对当前研究的含义
+At the September 12 browser observation, [thread 86](https://www.erdosproblems.com/forum/thread/86) was OPEN, with three comments, zero proof claims, and zero proof expositions. The comments concerned Baber's constant, Wrona's certificates, and subcube averaging. Author names, dates, and direct links are preserved in the [original observation](../references/user/source-pack/forum-86-observation.md).
 
-1. 若目标为 Q7 的 305 边构造，搜索必须允许离开 odd-square 类。
-2. 保留不同构造作为提升种子；当前边数最多的父图不保证提升后最好。
-3. PatternBoost 可作为候选生成模块，具体建议见[讲义方法说明](ml-methods-from-lectures.md)。它尚未在本项目训练或运行。
-4. 若搜索失败，应记录约束、预算、种子和失败范围。没有完整排除证书就不能宣布最优。
+Comments and claims that an AI or another reader checked a result are not independent proofs. The seven higher-dimensional certificates have a separate basis for trust: the project's direct integer checks.
 
-## Iteris 记录与证据等级
+## Implications and workflow
 
-原始输入登记在 `references/MANIFEST.json`，下载版本及文件哈希位于 `references/user/source-pack/DOWNLOAD_MANIFEST.json`。
-核心结论拆成 `memory/facts/` 中的持久记录，任务边界保存在 `tasks/TASK_POOL.json`。
-新增事实使用 `reviewed`：表示本次做了来源核对；具体数学验证范围以每条事实的正文和证据路径为准。
-没有用结构预检或语言模型自述把它们升级为 Iteris 的 `verified` 状态。
-现有研究已入库，研究发现阶段尚未启动。
+- A 305-edge Q7 search must leave the odd-square class.
+- Preserve structurally different parent graphs: the densest parent need not produce the best lift.
+- The [lecture methods](ml-methods-from-lectures.md) motivated a GraphGPS-style candidate generator. Its [completed diagnostics](graphgps-diagnostic-suite-results.md) have not demonstrated a competitive search advantage.
+- Preserve constraints, budgets, seeds, outputs, and stopping reasons. A failed search is not an optimality result.
+
+Input records are in `references/MANIFEST.json`; downloaded versions and hashes are in `references/user/source-pack/DOWNLOAD_MANIFEST.json`. Iteris facts and tasks retain source-specific evidence boundaries. The label `reviewed` records those checks, not external peer review or formal certification. Further research is currently paused.
